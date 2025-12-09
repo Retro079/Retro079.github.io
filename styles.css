@@ -42,65 +42,155 @@ h1, h2, h3, h4 {
   line-height: 1.2;
 }
 
-/* Get on the Bus Navigation */
+/* Top Bar Navigation Menu */
 .navbar {
+  background-color: var(--white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(139, 30, 63, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  height: 70px;
 }
 
-.nav-logo {
-  font-size: 1.8rem;
-  color: var(--white);
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
+.nav-brand {
   display: flex;
-  gap: 30px;
-  margin: 0;
+  align-items: center;
 }
 
-.nav-links a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: var(--transition);
-  padding: 8px 16px;
-  border-radius: 4px;
+.college-logo h2 {
+  color: var(--maroon);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.college-logo p {
+  color: var(--gray-medium);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
   position: relative;
 }
 
-.nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+.nav-link {
+  color: var(--gray-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.nav-links a::after {
+.nav-link:hover {
+  color: var(--maroon);
+}
+
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--gold);
-  transition: var(--transition);
   transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--maroon);
+  transition: var(--transition);
 }
 
-.nav-links a:hover::after {
-  width: 80%;
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: var(--maroon);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Action Buttons */
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-action-btn {
+  padding: 8px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.visit-btn {
+  background-color: transparent;
+  color: var(--maroon);
+  border-color: var(--maroon);
+}
+
+.visit-btn:hover {
+  background-color: var(--maroon);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.give-btn {
+  background-color: var(--gold);
+  color: var(--black);
+}
+
+.give-btn:hover {
+  background-color: #b8941c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--maroon);
+  cursor: pointer;
+  padding: 10px;
 }
 
 /* Video Hero Section */
@@ -109,6 +199,7 @@ h1, h2, h3, h4 {
   height: 100vh;
   min-height: 700px;
   overflow: hidden;
+  margin-top: 70px;
 }
 
 #bg-video {
@@ -184,49 +275,6 @@ h1, h2, h3, h4 {
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
-/* Morehouse Navigation Section */
-.morehouse-nav-section {
-  background-color: var(--white);
-  padding: 30px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.morehouse-nav {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  text-align: center;
-}
-
-.nav-item {
-  padding: 20px 15px;
-  background: var(--gray-light);
-  border-radius: 10px;
-  transition: var(--transition);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-item:hover {
-  background: var(--maroon-light);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.nav-item i {
-  font-size: 2rem;
-  color: var(--maroon);
-}
-
-.nav-item span {
-  font-weight: 600;
-  color: var(--gray-dark);
-  font-size: 0.9rem;
-}
-
 /* Morehouse Hero Section */
 .morehouse-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
@@ -254,48 +302,6 @@ h1, h2, h3, h4 {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-.btn-hero-primary, .btn-hero-secondary {
-  padding: 18px 40px;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 8px;
-  transition: var(--transition);
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 2px solid transparent;
-}
-
-.btn-hero-primary {
-  background-color: var(--maroon);
-  color: var(--white);
-}
-
-.btn-hero-primary:hover {
-  background-color: var(--maroon-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(139, 30, 63, 0.4);
-}
-
-.btn-hero-secondary {
-  background-color: transparent;
-  color: var(--white);
-  border-color: var(--white);
-}
-
-.btn-hero-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 /* Stats Section */
@@ -508,7 +514,7 @@ h1, h2, h3, h4 {
   padding-right: 10px;
 }
 
-/* Footer */
+/* Footer with Columns */
 .main-footer {
   background-color: var(--black);
   color: var(--white);
@@ -696,32 +702,70 @@ h1, h2, h3, h4 {
   .intro-content h2 {
     font-size: 2.4rem;
   }
+  
+  .nav-menu {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
-    flex-direction: column;
-    gap: 15px;
+  .nav-container {
+    padding: 0 20px;
+    height: 60px;
   }
   
-  .nav-links {
-    flex-wrap: wrap;
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .nav-center {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: var(--transition);
+  }
+  
+  .nav-center.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-link {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gray-light);
     justify-content: center;
-    gap: 15px;
+  }
+  
+  .nav-actions {
     display: none;
   }
   
-  .nav-links.active {
-    display: flex;
-  }
-  
-  .nav-logo {
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-  
   .hero {
+    margin-top: 60px;
     height: 70vh;
     min-height: 500px;
   }
@@ -732,10 +776,6 @@ h1, h2, h3, h4 {
   
   .hero-overlay p {
     font-size: 1.1rem;
-  }
-  
-  .morehouse-nav {
-    grid-template-columns: repeat(2, 1fr);
   }
   
   .morehouse-hero-content h1 {
@@ -814,7 +854,6 @@ h1, h2, h3, h4 {
 .morehouse-hero,
 .stats-section,
 .intro-section,
-.campus-exploration,
-.featured-links {
+.campus-exploration {
   animation: fadeIn 0.8s ease-out;
 }
