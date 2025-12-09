@@ -248,7 +248,7 @@
     /* Simple Page Header */
     .page-header {
       background-color: var(--white);
-      padding: 120px 0 60px;
+      padding: 100px 0 30px; /* Reduced bottom padding */
       text-align: center;
       margin-top: 85px;
     }
@@ -257,7 +257,7 @@
       color: var(--maroon);
       font-size: 3.5rem;
       font-weight: 900 !important;
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Reduced margin */
       letter-spacing: 2px;
       line-height: 1.1;
     }
@@ -274,8 +274,8 @@
     .section-title {
       text-align: center;
       color: var(--maroon);
-      margin-bottom: 60px;
-      font-size: 2.5rem;
+      margin-bottom: 40px; /* Reduced from 60px */
+      font-size: 2.2rem; /* Slightly smaller */
       font-weight: 900 !important;
       position: relative;
     }
@@ -295,14 +295,14 @@
     .section-subtitle {
       text-align: center;
       color: var(--gray-medium);
-      font-size: 1.2rem;
+      font-size: 1.1rem; /* Slightly smaller */
       font-weight: 600 !important;
       max-width: 700px;
-      margin: 0 auto 50px;
+      margin: 0 auto 30px; /* Reduced from 50px */
     }
 
     .section-padding {
-      padding: 100px 0;
+      padding: 60px 0; /* Reduced from 100px */
     }
 
     /* Google Tools Section */
@@ -313,22 +313,22 @@
     .tools-intro {
       text-align: center;
       max-width: 800px;
-      margin: 0 auto 60px;
+      margin: 0 auto 40px; /* Reduced from 60px */
       padding: 0 20px;
     }
 
     .tools-intro h2 {
       color: var(--maroon);
       margin-bottom: 15px;
-      font-size: 2rem;
+      font-size: 1.8rem; /* Slightly smaller */
       font-weight: 800 !important;
     }
 
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      margin-top: 30px;
+      gap: 30px; /* Reduced from 40px */
+      margin-top: 20px; /* Reduced from 30px */
     }
 
     .tool-card {
@@ -468,7 +468,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 30px; /* Reduced from 40px */
     }
 
     .tab-btn {
@@ -491,7 +491,7 @@
     .activities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
+      gap: 25px; /* Reduced from 30px */
     }
 
     .activity-card {
@@ -634,19 +634,19 @@
     .core-values-section {
       background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
       color: var(--white);
-      padding: 80px 0;
+      padding: 60px 0; /* Reduced from 80px */
     }
 
     .values-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      gap: 25px; /* Reduced from 30px */
+      margin-top: 30px; /* Reduced from 40px */
     }
 
     .value-item {
       text-align: center;
-      padding: 30px;
+      padding: 25px; /* Reduced from 30px */
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border-radius: 15px;
@@ -676,7 +676,7 @@
     .main-footer {
       background-color: var(--black);
       color: var(--white);
-      padding: 80px 0 30px;
+      padding: 60px 0 30px; /* Reduced top padding */
     }
 
     .footer-columns {
@@ -836,7 +836,7 @@
       
       .tools-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 25px; /* Reduced */
       }
     }
 
@@ -857,6 +857,7 @@
         grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
         margin: 0 auto;
+        gap: 25px; /* Reduced */
       }
     }
 
@@ -927,7 +928,7 @@
       
       .page-header {
         margin-top: 70px;
-        padding: 80px 0 40px;
+        padding: 80px 0 20px; /* Reduced */
       }
       
       .page-header h1 {
@@ -939,7 +940,8 @@
       }
       
       .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Smaller */
+        margin-bottom: 30px; /* Reduced */
       }
       
       .footer-bottom {
@@ -959,10 +961,11 @@
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
+        gap: 20px; /* Reduced */
       }
       
       .tool-card, .activity-card {
-        padding: 35px 25px;
+        padding: 20px; /* Reduced */
       }
     }
 
@@ -1059,7 +1062,7 @@
     </div>
   </nav>
 
-  <!-- Simple Page Header (Replaces Hero Section) -->
+  <!-- Simple Page Header -->
   <header class="page-header">
     <div class="container">
       <h1>Empowerment Tools & Activities</h1>
@@ -1070,8 +1073,7 @@
   <!-- Google Tools Section -->
   <section id="tools" class="google-tools-section section-padding">
     <div class="container">
-      <h2 class="section-title">Google Empowerment Tools</h2>
-      <p class="section-subtitle">Interactive digital tools for creative self-expression and identity exploration</p>
+      <!-- REMOVED: Google Empowerment Tools header and subtitle -->
       
       <div class="tools-intro">
         <h2>How to Use These Tools</h2>
