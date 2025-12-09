@@ -50,9 +50,11 @@ h1, h2, h3, h4 {
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 1000;
   padding: 0;
   border-bottom: 3px solid var(--maroon);
+  overflow: hidden; /* Prevent hanging over */
 }
 
 .nav-container {
@@ -62,14 +64,17 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 85px; /* Increased height */
+  height: 85px;
+  position: relative;
+  overflow: hidden; /* Prevent content from hanging over */
 }
 
 /* LOGO CONTAINER - UPDATED FOR IMAGE LOGO */
 .nav-brand {
   display: flex;
   align-items: center;
-  min-width: 300px; /* More space for logo + text */
+  min-width: 300px;
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
 .logo-link {
@@ -77,12 +82,14 @@ h1, h2, h3, h4 {
   align-items: center;
   text-decoration: none;
   color: inherit;
+  height: 100%;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: 15px;
+  height: 100%;
 }
 
 .main-logo {
@@ -101,7 +108,7 @@ h1, h2, h3, h4 {
 .logo-main {
   color: var(--maroon);
   font-size: 1.6rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   letter-spacing: 1.2px;
   line-height: 1.1;
   font-family: 'Montserrat', sans-serif;
@@ -111,7 +118,7 @@ h1, h2, h3, h4 {
 .logo-sub {
   color: var(--maroon);
   font-size: 1rem;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   margin-top: 3px;
   letter-spacing: 0.8px;
   font-family: 'Montserrat', sans-serif;
@@ -124,7 +131,7 @@ h1, h2, h3, h4 {
 /* Hero Logo Overlay */
 .hero-logo-overlay {
   position: absolute;
-  top: 100px; /* Below navbar */
+  top: 100px;
   left: 40px;
   z-index: 10;
 }
@@ -145,6 +152,7 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: center;
   margin: 0 40px;
+  overflow: hidden; /* Prevent hanging over */
 }
 
 .nav-menu {
@@ -156,16 +164,23 @@ h1, h2, h3, h4 {
   background-color: var(--white);
   border-radius: 8px;
   padding: 8px 15px;
+  max-width: 100%;
+  overflow: hidden; /* Prevent hanging over */
 }
 
 .nav-item {
   position: relative;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-item:last-child {
+  margin-right: 0; /* Ensure last item doesn't hang over */
 }
 
 .nav-link {
   color: var(--gray-dark);
   text-decoration: none;
-  font-weight: 700 !important; /* THICKER */
+  font-weight: 700 !important;
   font-size: 1rem;
   padding: 12px 18px;
   display: flex;
@@ -176,6 +191,12 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   border-radius: 6px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* REMOVED PODCAST - Adjusted nav menu items */
+.nav-menu {
+  gap: 25px; /* Slightly reduced gap since we removed podcast */
 }
 
 .nav-link:hover {
@@ -202,7 +223,7 @@ h1, h2, h3, h4 {
 /* Active link styling */
 .nav-link.active {
   color: var(--maroon);
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   background-color: var(--maroon-light);
 }
 
@@ -216,12 +237,13 @@ h1, h2, h3, h4 {
   gap: 15px;
   min-width: 200px;
   justify-content: flex-end;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
 .nav-action-btn {
   padding: 12px 28px;
   text-decoration: none;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   border-radius: 8px;
   font-size: 0.95rem;
   transition: var(--transition);
@@ -229,6 +251,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 
 .visit-btn {
@@ -259,7 +282,7 @@ h1, h2, h3, h4 {
 /* THICKER HERO TEXT */
 .hero-overlay h1 {
   font-size: 4rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 25px;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
   letter-spacing: 2px;
@@ -268,7 +291,7 @@ h1, h2, h3, h4 {
 
 .hero-overlay p {
   font-size: 1.5rem;
-  font-weight: 700 !important; /* THICKER */
+  font-weight: 700 !important;
   margin-bottom: 40px;
   text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
   opacity: 0.9;
@@ -280,7 +303,7 @@ h1, h2, h3, h4 {
   color: var(--black);
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   transition: var(--transition);
   font-size: 1.2rem;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
@@ -293,7 +316,7 @@ h1, h2, h3, h4 {
 /* THICKER MOREHOUSE HERO */
 .morehouse-hero-content h2 {
   font-size: 1.8rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 15px;
   color: var(--gold);
   letter-spacing: 3px;
@@ -302,7 +325,7 @@ h1, h2, h3, h4 {
 
 .morehouse-hero-content h1 {
   font-size: 3.5rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 50px;
   line-height: 1.1;
   max-width: 800px;
@@ -313,7 +336,7 @@ h1, h2, h3, h4 {
 /* THICKER STATS */
 .stat-item h3 {
   font-size: 3.5rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   color: var(--maroon);
   margin-bottom: 15px;
 }
@@ -321,7 +344,7 @@ h1, h2, h3, h4 {
 .stat-item p {
   color: var(--gray-medium);
   font-size: 1.1rem;
-  font-weight: 700 !important; /* THICKER */
+  font-weight: 700 !important;
   line-height: 1.4;
 }
 
@@ -331,7 +354,7 @@ h1, h2, h3, h4 {
   color: var(--maroon);
   margin-bottom: 60px;
   font-size: 2.5rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   position: relative;
 }
 
@@ -340,13 +363,13 @@ h1, h2, h3, h4 {
   color: var(--maroon);
   margin-bottom: 20px;
   font-size: 1.6rem;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
 }
 
 .link-description {
   color: var(--gray-medium);
   font-size: 1.05rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
   margin-bottom: 30px;
   line-height: 1.6;
   min-height: 60px;
@@ -358,7 +381,7 @@ h1, h2, h3, h4 {
   text-decoration: none;
   padding: 14px 30px;
   border-radius: 8px;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -371,7 +394,7 @@ h1, h2, h3, h4 {
 /* THICKER INTRODUCTION TEXT */
 .intro-content h2 {
   font-size: 2.8rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   color: var(--maroon);
   margin-bottom: 30px;
   line-height: 1.2;
@@ -379,7 +402,7 @@ h1, h2, h3, h4 {
 
 .intro-content p {
   font-size: 1.2rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
   color: var(--gray-dark);
   margin-bottom: 25px;
   line-height: 1.8;
@@ -388,14 +411,14 @@ h1, h2, h3, h4 {
 /* THICKER CAMPUS TEXT */
 .campus-content h2 {
   font-size: 3rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 25px;
   line-height: 1.1;
 }
 
 .campus-content p {
   font-size: 1.3rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
   margin-bottom: 50px;
   opacity: 0.95;
   line-height: 1.7;
@@ -404,7 +427,7 @@ h1, h2, h3, h4 {
 .btn-campus-primary, .btn-campus-secondary {
   padding: 18px 40px;
   text-decoration: none;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   border-radius: 8px;
   transition: var(--transition);
   text-transform: uppercase;
@@ -417,7 +440,7 @@ h1, h2, h3, h4 {
 .footer-column h3 {
   color: var(--white);
   font-size: 1.4rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 25px;
   padding-bottom: 15px;
   border-bottom: 2px solid var(--gold);
@@ -428,14 +451,14 @@ h1, h2, h3, h4 {
   text-decoration: none;
   transition: var(--transition);
   font-size: 0.95rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
   display: block;
   padding: 6px 0;
 }
 
 .footer-column .subheading {
   color: var(--gold);
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.05rem;
@@ -445,21 +468,21 @@ h1, h2, h3, h4 {
 .footer-logo h3 {
   color: var(--white);
   font-size: 1.8rem;
-  font-weight: 900 !important; /* EXTRA THICK */
+  font-weight: 900 !important;
   margin-bottom: 5px;
 }
 
 .footer-logo p {
   color: var(--gold);
   font-size: 0.95rem;
-  font-weight: 800 !important; /* THICKER */
+  font-weight: 800 !important;
 }
 
 .footer-info p {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 15px;
   font-size: 1rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
 }
 
 /* FOOTER LOGO STYLING */
@@ -481,7 +504,7 @@ h1, h2, h3, h4 {
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.95rem;
-  font-weight: 600 !important; /* THICKER */
+  font-weight: 600 !important;
   padding-top: 20px;
 }
 
@@ -503,7 +526,7 @@ h1, h2, h3, h4 {
   height: 100vh;
   min-height: 700px;
   overflow: hidden;
-  margin-top: 85px; /* Adjusted for taller nav */
+  margin-top: 85px;
 }
 
 #bg-video {
@@ -769,7 +792,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   color: var(--white);
   font-size: 1rem;
-  font-weight: 700 !important; /* THICKER */
+  font-weight: 700 !important;
   transition: var(--transition);
 }
 
@@ -813,12 +836,12 @@ h1, h2, h3, h4 {
   }
   
   .nav-menu {
-    gap: 25px;
+    gap: 20px; /* Further reduced gap for smaller screens */
   }
   
   .nav-link {
     padding: 10px 15px;
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Slightly smaller font */
   }
   
   .main-logo {
@@ -827,6 +850,10 @@ h1, h2, h3, h4 {
   
   .logo-main {
     font-size: 1.4rem;
+  }
+  
+  .nav-actions {
+    min-width: 180px;
   }
 }
 
@@ -852,7 +879,28 @@ h1, h2, h3, h4 {
   }
   
   .nav-actions {
-    min-width: 180px;
+    min-width: 170px;
+  }
+  
+  .nav-action-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Medium screens - prevent hanging */
+@media screen and (max-width: 1100px) {
+  .nav-menu {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .nav-actions {
+    min-width: 160px;
   }
 }
 
@@ -879,6 +927,7 @@ h1, h2, h3, h4 {
     transform: translateY(-20px);
     transition: var(--transition);
     margin: 0;
+    overflow: visible;
   }
   
   .nav-center.active {
@@ -892,6 +941,7 @@ h1, h2, h3, h4 {
     gap: 0;
     align-items: center;
     padding: 0;
+    overflow: visible;
   }
   
   .nav-item {
@@ -904,6 +954,7 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid var(--gray-light);
     justify-content: center;
     border-radius: 0;
+    font-size: 1rem;
   }
   
   .nav-link::after {
