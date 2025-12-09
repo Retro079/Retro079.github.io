@@ -9,44 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Why Morehouse Page Specific Styles */
-    .why-morehouse-hero {
-      position: relative;
-      height: 80vh;
-      min-height: 600px;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                  url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
-      margin-top: 85px;
-    }
     
-    .why-morehouse-hero-content {
-      max-width: 800px;
-      padding: 0 20px;
-    }
+    /* REMOVED: .why-morehouse-hero and all hero-related styles */
     
-    .why-morehouse-hero h1 {
-      font-size: 4rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-    }
-    
-    .why-morehouse-hero p {
-      font-size: 1.5rem;
-      font-weight: 600;
-      opacity: 0.9;
-    }
-    
-    /* Celebrity & Influencer Section */
+    /* Celebrity & Influencer Section - UPDATED */
     .celebrities-section {
-      padding: 100px 0;
+      padding: 100px 0 50px; /* Adjusted top padding */
       background-color: var(--white);
+      margin-top: 85px; /* Added margin to account for fixed nav */
     }
     
     .celebrities-grid {
@@ -480,10 +450,6 @@
     
     /* Responsive Design */
     @media screen and (max-width: 1024px) {
-      .why-morehouse-hero h1 {
-        font-size: 3.2rem;
-      }
-      
       .interactive-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -500,18 +466,9 @@
     }
     
     @media screen and (max-width: 768px) {
-      .why-morehouse-hero {
-        height: 60vh;
-        min-height: 400px;
+      .celebrities-section {
         margin-top: 70px;
-      }
-      
-      .why-morehouse-hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .why-morehouse-hero p {
-        font-size: 1.2rem;
+        padding-top: 80px; /* Adjusted for mobile */
       }
       
       .values-grid,
@@ -553,6 +510,10 @@
       
       .event-header {
         padding: 20px;
+      }
+      
+      .celebrities-section {
+        padding-top: 60px; /* Further adjusted for small mobile */
       }
     }
   </style>
@@ -600,15 +561,9 @@
     </div>
   </nav>
 
-  <!-- Hero Section with new background -->
-  <section class="why-morehouse-hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.opencampus.org/2023/04/13/how-morehouse-college-is-challenging-what-it-means-to-be-a-black-man/'); background-size: cover; background-position: center;">
-    <div class="why-morehouse-hero-content">
-      <h1>Why Morehouse?</h1>
-      <p>Redefining Black Masculinity & Creating Men of Consequence</p>
-    </div>
-  </section>
+  <!-- REMOVED: Hero Section with new background -->
 
-  <!-- Celebrities & Influencers Section - UPDATED CELEBRITIES -->
+  <!-- Celebrities & Influencers Section - UPDATED CELEBRITIES WITH BETTER IMAGES -->
   <section class="celebrities-section">
     <div class="container">
       <h2 class="section-title">Distinguished Visitors & Alumni</h2>
@@ -616,7 +571,7 @@
       
       <div class="celebrities-grid">
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg'); background-position: top center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Barack Obama</div>
             <div class="celebrity-title">44th President of the United States</div>
@@ -626,7 +581,7 @@
         </div>
         
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5e/Spike_Lee_2010_crop.jpg'); background-position: center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Spike Lee</div>
             <div class="celebrity-title">Academy Award Winning Director</div>
@@ -636,7 +591,7 @@
         </div>
         
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9b/Robert_F._Smith_%28cropped%29.jpg'); background-position: center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Robert F. Smith</div>
             <div class="celebrity-title">Billionaire Philanthropist</div>
@@ -646,7 +601,7 @@
         </div>
         
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/79/Michael_L._Lomax.jpg'); background-position: center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Dr. Michael Lomax</div>
             <div class="celebrity-title">Morehouse Alumnus & President of UNCF</div>
@@ -656,7 +611,7 @@
         </div>
         
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/05/Martin_Luther_King%2C_Jr..jpg'); background-position: center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Dr. Martin Luther King Jr.</div>
             <div class="celebrity-title">Class of 1948, Nobel Peace Prize Laureate</div>
@@ -666,7 +621,7 @@
         </div>
         
         <div class="celebrity-card">
-          <div class="celebrity-image" style="background-image: url('https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="celebrity-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4c/Samuel_L._Jackson_2019_by_Glenn_Francis.jpg'); background-position: top center;"></div>
           <div class="celebrity-info">
             <div class="celebrity-name">Samuel L. Jackson</div>
             <div class="celebrity-title">Academy Award Nominated Actor</div>
@@ -1010,82 +965,3 @@
       </div>
 
       <div class="copyright">
-        <p>&copy; 2025 Morehouse College. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Chat Assistant -->
-  <div class="chat-assistant">
-    <div class="chat-icon">
-      <i class="fas fa-comments"></i>
-    </div>
-  </div>
-
-  <script>
-    // Mobile menu toggle
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileToggle.querySelector('i').classList.toggle('fa-bars');
-      mobileToggle.querySelector('i').classList.toggle('fa-times');
-    });
-
-    // Close menu when clicking outside on mobile
-    document.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768 && !e.target.closest('.navbar')) {
-        navMenu.classList.remove('active');
-        mobileToggle.querySelector('i').classList.remove('fa-times');
-        mobileToggle.querySelector('i').classList.add('fa-bars');
-      }
-    });
-
-    // Download campus map function
-    function downloadCampusMap() {
-      window.open('https://www.morehouse.edu/about/campus-map/', '_blank');
-    }
-
-    // Add scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    // Observe cards for animation
-    document.querySelectorAll('.celebrity-card, .event-card, .value-card, .fact-card, .sport-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-
-    // Enhance sports cards with click functionality
-    document.querySelectorAll('.sport-card').forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (!e.target.closest('.sport-link')) {
-          const sport = this.querySelector('h3').textContent;
-          const urls = {
-            'Football': 'https://morehouseathletics.com/sports/football',
-            'Basketball': 'https://morehouseathletics.com/sports/mens-basketball',
-            'Track & Field': 'https://morehouseathletics.com/sports/track-and-field',
-            'Baseball': 'https://morehouseathletics.com/sports/baseball'
-          };
-          window.open(urls[sport], '_blank');
-        }
-      });
-    });
-
-    // Auto-play video on hover (optional)
-    const tourFrame = document.querySelector('.tour-frame');
-    tourFrame.addEventListener('mouseenter', function() {
-      this.src = this.src.replace('?', '?autoplay=1&');
-    });
-  </script>
-</body>
-</html>
