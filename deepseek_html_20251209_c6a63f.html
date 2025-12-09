@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Morehouse | Get on the Bus</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Why Morehouse Page Specific Styles */
+    .why-morehouse-hero {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                  url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      margin-top: 85px;
+    }
+    
+    .why-morehouse-hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .why-morehouse-hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    
+    .why-morehouse-hero p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    
+    /* Interactive Timeline */
+    .timeline-section {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 50px auto 0;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: linear-gradient(to bottom, var(--maroon), var(--gold));
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 60px;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 30px;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      position: relative;
+      border-left: 5px solid var(--maroon);
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+      border-left: none;
+      border-right: 5px solid var(--gold);
+    }
+    
+    .timeline-year {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      z-index: 1;
+      top: 15px;
+      right: -30px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-year {
+      left: -30px;
+      right: auto;
+      background: linear-gradient(135deg, var(--gold) 0%, #b8941c 100%);
+      color: var(--black);
+    }
+    
+    .timeline-content h3 {
+      color: var(--maroon);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+    
+    /* Mission & Values Cards */
+    .mission-values-section {
+      padding: 100px 0;
+      background-color: var(--gray-light);
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .value-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--maroon-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: var(--maroon);
+      font-size: 2rem;
+    }
+    
+    /* Facts & Stats */
+    .facts-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      color: var(--white);
+    }
+    
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+    
+    .fact-card {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+    }
+    
+    .fact-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .fact-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+    
+    /* Athletics Section */
+    .athletics-section {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+    
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .sport-card {
+      background: var(--gray-light);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .sport-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .sport-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .sport-info {
+      padding: 25px;
+    }
+    
+    .sport-info h3 {
+      color: var(--maroon);
+      margin-bottom: 10px;
+    }
+    
+    /* Campus Interactive */
+    .campus-interactive {
+      padding: 100px 0;
+      background-color: var(--gray-light);
+    }
+    
+    .interactive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 50px;
+      align-items: center;
+    }
+    
+    .map-container {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    .campus-map {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, var(--maroon-light) 0%, var(--gold-light) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .map-points {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .map-point {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    
+    .map-point:hover {
+      background: var(--maroon-light);
+    }
+    
+    .point-color {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+    
+    .point-1 { background: var(--maroon); }
+    .point-2 { background: var(--gold); }
+    .point-3 { background: #4CAF50; }
+    .point-4 { background: #2196F3; }
+    
+    /* Virtual Tour */
+    .tour-container {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    
+    .tour-preview {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tour-preview::before {
+      content: '🔍';
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .tour-controls {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .tour-btn {
+      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .tour-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
+    }
+    
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+      .why-morehouse-hero h1 {
+        font-size: 3.2rem;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-year {
+        left: -10px !important;
+        right: auto !important;
+      }
+      
+      .interactive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .why-morehouse-hero {
+        height: 60vh;
+        min-height: 400px;
+        margin-top: 70px;
+      }
+      
+      .why-morehouse-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .why-morehouse-hero p {
+        font-size: 1.2rem;
+      }
+      
+      .values-grid,
+      .facts-grid,
+      .sports-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tour-controls {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar Navigation Menu - SAME AS INDEX -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Left: Morehouse College Logo with Get on the Bus -->
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-container">
+            <img src="gotb-logo.jpg" alt="Morehouse College Get on the Bus" class="main-logo">
+            <div class="logo-text">
+              <div class="logo-main">MOREHOUSE COLLEGE</div>
+              <div class="logo-sub">Get on the Bus</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Top Bar Navigation Links -->
+      <div class="nav-center">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="why-morehouse.html" class="nav-link active">Why Morehouse</a>
+          </li>
+          <li class="nav-item">
+            <a href="tools.html" class="nav-link">Empowerment Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="workshop.html" class="nav-link">Empowerment Workshop</a>
+          </li>
+          <li class="nav-item">
+            <a href="stories.html" class="nav-link">Share Your Story</a>
+          </li>
+          <li class="nav-item">
+            <a href="places.html" class="nav-link">Places We've Been</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="why-morehouse-hero">
+    <div class="why-morehouse-hero-content">
+      <h1>Why Morehouse?</h1>
+      <p>Discover the Legacy, Values, and Community That Forges Men of Consequence</p>
+    </div>
+  </section>
+
+  <!-- History Timeline -->
+  <section class="timeline-section">
+    <div class="container">
+      <h2 class="section-title">Our Historic Journey</h2>
+      <p class="section-subtitle">From 1867 to Today: A Legacy of Excellence</p>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1867</div>
+            <h3>The Foundation</h3>
+            <p>Morehouse College was founded in Augusta, Georgia, as the Augusta Institute. Established by William Jefferson White with the support of the Rev. Richard C. Coulter and the Rev. Edmund Turney, the institution was founded to educate African American men in theology and education.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1906</div>
+            <h3>Becoming Morehouse</h3>
+            <p>The institution was renamed Morehouse College in honor of Henry L. Morehouse, corresponding secretary of the American Baptist Home Mission Society. The college moved to its current location in Atlanta, Georgia.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1940</div>
+            <h3>Benjamin Mays Era</h3>
+            <p>Dr. Benjamin E. Mays became president, serving for 27 years. During his tenure, he mentored Martin Luther King Jr. and transformed Morehouse into a leading institution for Black leadership and civil rights activism.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">1968</div>
+            <h3>MLK Memorial</h3>
+            <p>Morehouse held the funeral for its most famous alumnus, Dr. Martin Luther King Jr., Class of 1948. The ceremony was held on the college's campus, drawing dignitaries from around the world.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-year">Present</div>
+            <h3>Modern Excellence</h3>
+            <p>Today, Morehouse continues its mission as the nation's only historically Black liberal arts college for men. With state-of-the-art facilities, renowned faculty, and a commitment to producing leaders, Morehouse remains at the forefront of higher education.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="mission-values-section">
+    <div class="container">
+      <h2 class="section-title">Our Mission & Core Values</h2>
+      <p class="section-subtitle">The Principles That Guide Every Morehouse Man</p>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Academic Excellence</h3>
+          <p>We challenge students to achieve the highest standards of intellectual engagement and scholarly achievement in a rigorous liberal arts environment.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Servant Leadership</h3>
+          <p>We develop men who use their knowledge and talents to serve their communities and lead with integrity, compassion, and social responsibility.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Brotherhood</h3>
+          <p>We foster a lifelong bond among students, alumni, faculty, and staff that creates a supportive network of men committed to each other's success.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-fist-raised"></i>
+          </div>
+          <h3>Social Justice</h3>
+          <p>We continue the legacy of our alumni by preparing students to confront injustice and work toward creating a more equitable society.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Critical Inquiry</h3>
+          <p>We encourage intellectual curiosity, critical thinking, and the pursuit of truth through rigorous analysis and open dialogue.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3>Global Perspective</h3>
+          <p>We prepare students to engage with diverse cultures and perspectives, equipping them to make meaningful contributions in an interconnected world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts & Statistics -->
+  <section class="facts-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Morehouse By The Numbers</h2>
+      <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Impressive Facts That Define Our Excellence</p>
+      
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-number">#1</div>
+          <h3>Producer of Black Male Doctors</h3>
+          <p>Highest number of Black males who go on to earn doctorates</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">#3</div>
+          <h3>Top HBCU Nationally</h3>
+          <p>Ranked among the top HBCUs in the United States</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">2,200+</div>
+          <h3>Current Students</h3>
+          <p>Men from across the nation and around the world</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">17,000+</div>
+          <h3>Living Alumni</h3>
+          <p>Creating impact in every professional field</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">66</div>
+          <h3>Acre Campus</h3>
+          <p>Beautiful urban campus in Atlanta, Georgia</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">154</div>
+          <h3>Years of Excellence</h3>
+          <p>Since our founding in 1867</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">11:1</div>
+          <h3>Student-Faculty Ratio</h3>
+          <p>Ensuring personalized attention and mentorship</p>
+        </div>
+        
+        <div class="fact-card">
+          <div class="fact-number">$140M+</div>
+          <h3>Financial Aid</h3>
+          <p>Awarded annually to support student success</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Athletics -->
+  <section class="athletics-section">
+    <div class="container">
+      <h2 class="section-title">Maroon Tiger Athletics</h2>
+      <p class="section-subtitle">Excellence On and Off the Field</p>
+      
+      <div class="sports-grid">
+        <div class="sport-card">
+          <div class="sport-image" style="background-image: url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="sport-info">
+            <h3>Football</h3>
+            <p>SIAC Conference Champions with a legacy of producing NFL talent and scholar-athletes.</p>
+          </div>
+        </div>
+        
+        <div class="sport-card">
+          <div class="sport-image" style="background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="sport-info">
+            <h3>Basketball</h3>
+            <p>Historic program with NBA alumni and consistent NCAA tournament appearances.</p>
+          </div>
+        </div>
+        
+        <div class="sport-card">
+          <div class="sport-image" style="background-image: url('https://images.unsplash.com/photo-1519861531473-920034658307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="sport-info">
+            <h3>Track & Field</h3>
+            <p>Olympic-caliber athletes and multiple conference championships.</p>
+          </div>
+        </div>
+        
+        <div class="sport-card">
+          <div class="sport-image" style="background-image: url('https://images.unsplash.com/photo-1595435934247-5d33b7f92c70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="sport-info">
+            <h3>Baseball</h3>
+            <p>Competitive program developing talent for collegiate and professional play.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="#" class="cta-button" style="display: inline-block;">View Full Sports Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus Map & Virtual Tour -->
+  <section class="campus-interactive">
+    <div class="container">
+      <h2 class="section-title">Explore Our Campus</h2>
+      <p class="section-subtitle">Walk in the Footsteps of History</p>
+      
+      <div class="interactive-grid">
+        <!-- Campus Map -->
+        <div class="map-container">
+          <h3>Campus Map</h3>
+          <div class="campus-map">
+            <div style="text-align: center; color: var(--maroon);">
+              <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 15px;"></i>
+              <p style="font-weight: 700; font-size: 1.2rem;">Interactive Campus Map</p>
+              <p>Click points below to explore</p>
+            </div>
+          </div>
+          
+          <div class="map-points">
+            <div class="map-point" onclick="highlightLocation('king-chapel')">
+              <div class="point-color point-1"></div>
+              <span>King Chapel</span>
+            </div>
+            <div class="map-point" onclick="highlightLocation('academic')">
+              <div class="point-color point-2"></div>
+              <span>Academic Buildings</span>
+            </div>
+            <div class="map-point" onclick="highlightLocation('athletic')">
+              <div class="point-color point-3"></div>
+              <span>Athletic Facilities</span>
+            </div>
+            <div class="map-point" onclick="highlightLocation('housing')">
+              <div class="point-color point-4"></div>
+              <span>Student Housing</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Virtual Tour -->
+        <div class="tour-container">
+          <h3>Virtual Campus Tour</h3>
+          <p>Experience Morehouse from anywhere in the world with our immersive virtual tour.</p>
+          
+          <div class="tour-preview">
+            <!-- This would be replaced with actual tour embed -->
+          </div>
+          
+          <div class="tour-controls">
+            <button class="tour-btn" onclick="startVirtualTour()">
+              <i class="fas fa-play-circle"></i>
+              Start Virtual Tour
+            </button>
+            <button class="tour-btn" style="background: linear-gradient(135deg, var(--gold) 0%, #b8941c 100%); color: var(--black);">
+              <i class="fas fa-download"></i>
+              Download Campus Map
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Same as index.html) -->
+  <footer class="main-footer">
+    <div class="container">
+      <!-- Footer content from index.html goes here -->
+      <!-- Copy the entire footer section from your index.html -->
+      <div class="footer-bottom">
+        <div class="footer-logo">
+          <img src="gotb-logo.jpg" alt="Morehouse College Get on the Bus" class="footer-logo-img">
+          <div class="footer-logo-text">
+            <h3>MOREHOUSE COLLEGE</h3>
+            <p>Get on the Bus</p>
+          </div>
+        </div>
+        <div class="footer-info">
+          <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Morehouse College. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Assistant -->
+  <div class="chat-assistant">
+    <div class="chat-icon">
+      <i class="fas fa-comments"></i>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle (same as index.html)
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileToggle.querySelector('i').classList.toggle('fa-bars');
+      mobileToggle.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Interactive map functionality
+    function highlightLocation(location) {
+      const campusMap = document.querySelector('.campus-map');
+      const locations = {
+        'king-chapel': {
+          color: 'var(--maroon)',
+          title: 'Martin Luther King Jr. International Chapel',
+          description: 'The spiritual center of campus where Dr. King was eulogized'
+        },
+        'academic': {
+          color: 'var(--gold)',
+          title: 'Academic Quad',
+          description: 'Home to classrooms, labs, and faculty offices'
+        },
+        'athletic': {
+          color: '#4CAF50',
+          title: 'Athletic Complex',
+          description: 'State-of-the-art sports and wellness facilities'
+        },
+        'housing': {
+          color: '#2196F3',
+          title: 'Residence Halls',
+          description: 'Living and learning communities for students'
+        }
+      };
+
+      const loc = locations[location];
+      campusMap.innerHTML = `
+        <div style="text-align: center; color: ${loc.color}; padding: 20px;">
+          <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 15px;"></i>
+          <p style="font-weight: 900; font-size: 1.5rem; margin-bottom: 10px;">${loc.title}</p>
+          <p style="font-size: 1.1rem;">${loc.description}</p>
+        </div>
+      `;
+      
+      // Add pulsing animation
+      campusMap.style.boxShadow = `0 0 20px ${loc.color}`;
+      setTimeout(() => {
+        campusMap.style.boxShadow = 'none';
+      }, 1000);
+    }
+
+    function startVirtualTour() {
+      alert('Starting virtual tour! This would launch an immersive 360° campus experience.');
+      // In production, this would embed a virtual tour platform like YouVisit or Matterport
+    }
+
+    // Add scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe timeline items and cards
+    document.querySelectorAll('.timeline-item, .value-card, .fact-card, .sport-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
