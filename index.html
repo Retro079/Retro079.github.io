@@ -16,8 +16,8 @@
       <!-- Left: Morehouse College Logo with Get on the Bus -->
       <div class="nav-brand">
         <div class="college-logo">
-          <h2>MOREHOUSE COLLEGE</h2>
-          <p>Get on the Bus</p>
+          <div class="logo-main">MOREHOUSE COLLEGE</div>
+          <div class="logo-sub">Get on the Bus</div>
         </div>
       </div>
 
@@ -106,34 +106,10 @@
     </div>
   </section>
 
-  <!-- Introduction Section -->
-  <section class="intro-section">
-    <div class="container">
-      <div class="intro-content">
-        <h2>We don't just educate students</h2>
-        <p>We produce innovators and leaders who are men of distinction. U.S. Senator, Nobel Peace Prize laureate, Oscar winner, corporate CEO, U.S. Homeland Security Secretary, Surgeon General—Morehouse Men are in a class of their own.</p>
-        <p>There is a world of universities and professions to choose from. Today, Black men have access to them all. But since 1867, many of the best and brightest have chosen an HBCU in Atlanta, Morehouse College. Our 66-acre campus southwest of downtown Atlanta is home to more than 2,200 students preparing to make their mark on the world.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Campus Exploration -->
-  <section class="campus-exploration">
-    <div class="container">
-      <div class="campus-content">
-        <h2>EXPLORE OUR CAMPUS NOW</h2>
-        <p>Explore our HBCU in Atlanta and walk in the footsteps of history, where American Presidents have spoken, Dr. King was eulogized, Civil Rights Movements began, and where talented students became transformative leaders.</p>
-        <div class="campus-buttons">
-          <a href="#" class="btn-campus-primary">TAKE A VIRTUAL TOUR</a>
-          <a href="#" class="btn-campus-secondary">VIEW CAMPUS MAP</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Updated Featured Links Grid with Google Tools -->
+  <!-- Updated Featured Links Grid with Google Tools (Moved before intro) -->
   <section class="featured-links">
     <div class="container">
+      <h2 class="section-title">Innovation Tools & Resources</h2>
       <div class="links-grid">
         <!-- Google Doppl -->
         <div class="link-card">
@@ -178,48 +154,26 @@
     </div>
   </section>
 
-  <!-- Original Categories Section (Hidden by default but can be toggled) -->
-  <section class="categories-section" id="categories">
+  <!-- Introduction Section (Moved after Google tools) -->
+  <section class="intro-section">
     <div class="container">
-      <h2 class="section-title">Program Categories</h2>
-      <div class="categories-grid">
-        <!-- Athletics -->
-        <div class="category-card">
-          <h3><i class="fas fa-football-ball"></i> Athletics</h3>
-          <ul>
-            <li><a href="#">Sports Schedules</a></li>
-            <li><a href="#">Maroon Tigers</a></li>
-          </ul>
-        </div>
+      <div class="intro-content">
+        <h2>We don't just educate students</h2>
+        <p>We produce innovators and leaders who are men of distinction. U.S. Senator, Nobel Peace Prize laureate, Oscar winner, corporate CEO, U.S. Homeland Security Secretary, Surgeon General—Morehouse Men are in a class of their own.</p>
+        <p>There is a world of universities and professions to choose from. Today, Black men have access to them all. But since 1867, many of the best and brightest have chosen an HBCU in Atlanta, Morehouse College. Our 66-acre campus southwest of downtown Atlanta is home to more than 2,200 students preparing to make their mark on the world.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Campus Life -->
-        <div class="category-card">
-          <h3><i class="fas fa-home"></i> Campus Life</h3>
-          <ul>
-            <li><a href="#">Housing</a></li>
-            <li><a href="#">Orientation</a></li>
-            <li><a href="#">Student Organizations</a></li>
-          </ul>
-        </div>
-
-        <!-- Get on the Bus -->
-        <div class="category-card">
-          <h3><i class="fas fa-bus"></i> Get on the Bus</h3>
-          <ul>
-            <li><a href="places.html">Places We've Been</a></li>
-            <li><a href="podcast.html">Podcast</a></li>
-            <li><a href="tools.html">Empowerment Tools</a></li>
-          </ul>
-        </div>
-
-        <!-- Student Stories -->
-        <div class="category-card">
-          <h3><i class="fas fa-comment"></i> Student Stories</h3>
-          <ul>
-            <li><a href="stories.html">Read Stories</a></li>
-            <li><a href="#">Submit Your Story</a></li>
-            <li><a href="#">Featured Experiences</a></li>
-          </ul>
+  <!-- Campus Exploration -->
+  <section class="campus-exploration">
+    <div class="container">
+      <div class="campus-content">
+        <h2>EXPLORE OUR CAMPUS NOW</h2>
+        <p>Explore our HBCU in Atlanta and walk in the footsteps of history, where American Presidents have spoken, Dr. King was eulogized, Civil Rights Movements began, and where talented students became transformative leaders.</p>
+        <div class="campus-buttons">
+          <a href="#" class="btn-campus-primary">TAKE A VIRTUAL TOUR</a>
+          <a href="#" class="btn-campus-secondary">VIEW CAMPUS MAP</a>
         </div>
       </div>
     </div>
@@ -314,11 +268,8 @@
     </div>
   </footer>
 
-  <!-- Chat Assistant -->
+  <!-- Chat Assistant (no text) -->
   <div class="chat-assistant">
-    <div class="chat-bubble">
-      <p>Hello! I am here to assist you</p>
-    </div>
     <div class="chat-icon">
       <i class="fas fa-comments"></i>
     </div>
@@ -342,6 +293,26 @@
         mobileToggle.querySelector('i').classList.remove('fa-times');
         mobileToggle.querySelector('i').classList.add('fa-bars');
       }
+    });
+
+    // Active link highlighting
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute('href');
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+      
+      // Add click event for mobile to close menu after clicking
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('active');
+          mobileToggle.querySelector('i').classList.remove('fa-times');
+          mobileToggle.querySelector('i').classList.add('fa-bars');
+        }
+      });
     });
   </script>
 </body>
