@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morehouse College | Home</title>
+  <title>Morehouse College | Get on the Bus</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Get on the Bus Navigation -->
   <nav class="navbar">
     <div class="nav-logo">Get on the Bus</div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">About</a></li>
       <li><a href="places.html">Places We've Been</a></li>
       <li><a href="stories.html">Student Stories</a></li>
       <li><a href="tools.html">Empowerment Tools</a></li>
@@ -22,7 +22,7 @@
     </ul>
   </nav>
 
-  <!-- Background Video Section -->
+  <!-- Video Hero Section -->
   <header class="hero">
     <video autoplay muted loop id="bg-video">
       <source src="morehouse-bg.mp4" type="video/mp4">
@@ -35,13 +35,48 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <h2>MEN ON A MISSION</h2>
-      <h1>TO LEAD LIVES OF CONSEQUENCE</h1>
-      <div class="hero-buttons">
-        <a href="#" class="btn-hero-primary">APPLY TO MOREHOUSE</a>
+  <!-- Morehouse Main Navigation -->
+  <section class="morehouse-nav-section">
+    <div class="container">
+      <div class="morehouse-nav">
+        <div class="nav-item">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Academics</span>
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-user-plus"></i>
+          <span>Admissions</span>
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Aid & Accounts</span>
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-home"></i>
+          <span>Campus Life</span>
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-flask"></i>
+          <span>Research</span>
+        </div>
+        <div class="nav-item">
+          <i class="fas fa-newspaper"></i>
+          <span>News & Events</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Morehouse Hero Section -->
+  <section class="morehouse-hero">
+    <div class="container">
+      <div class="morehouse-hero-content">
+        <h2>MEN ON A MISSION</h2>
+        <h1>TO LEAD LIVES OF CONSEQUENCE</h1>
+        <div class="hero-buttons">
+          <a href="#" class="btn-hero-primary">APPLY TO MOREHOUSE</a>
+          <a href="#" class="btn-hero-secondary">OPEN HOUSE</a>
+        </div>
       </div>
     </div>
   </section>
@@ -68,70 +103,107 @@
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main class="container main-content">
-    <!-- Introduction Section -->
-    <section class="intro-section">
-      <div class="intro-text">
+  <!-- Introduction Section -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
         <h2>We don't just educate students</h2>
         <p>We produce innovators and leaders who are men of distinction. U.S. Senator, Nobel Peace Prize laureate, Oscar winner, corporate CEO, U.S. Homeland Security Secretary, Surgeon General—Morehouse Men are in a class of their own.</p>
         <p>There is a world of universities and professions to choose from. Today, Black men have access to them all. But since 1867, many of the best and brightest have chosen an HBCU in Atlanta, Morehouse College. Our 66-acre campus southwest of downtown Atlanta is home to more than 2,200 students preparing to make their mark on the world.</p>
       </div>
-      <div class="intro-image">
-        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Morehouse College Campus">
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Campus Exploration Section -->
-    <section class="campus-exploration">
+  <!-- Campus Exploration -->
+  <section class="campus-exploration">
+    <div class="container">
       <div class="campus-content">
         <h2>EXPLORE OUR CAMPUS NOW</h2>
         <p>Explore our HBCU in Atlanta and walk in the footsteps of history, where American Presidents have spoken, Dr. King was eulogized, Civil Rights Movements began, and where talented students became transformative leaders.</p>
         <div class="campus-buttons">
-          <a href="#" class="btn-campus-primary">EXPLORE NOW</a>
-          <a href="#" class="btn-campus-secondary">VIEW INTERACTIVE CAMPUS MAP</a>
+          <a href="#" class="btn-campus-primary">TAKE A VIRTUAL TOUR</a>
+          <a href="#" class="btn-campus-secondary">VIEW CAMPUS MAP</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links-section">
-      <h2 class="section-title">QUICK LINKS</h2>
-      <div class="quick-links-grid">
-        <div class="quick-link-category">
-          <h3><i class="fas fa-futbol"></i> Athletics</h3>
+  <!-- Featured Links Grid -->
+  <section class="featured-links">
+    <div class="container">
+      <div class="links-grid">
+        <!-- Athletics -->
+        <div class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-football-ball"></i>
+          </div>
+          <h3>Athletics</h3>
           <ul>
             <li><a href="#">Sports Schedules</a></li>
             <li><a href="#">Maroon Tigers</a></li>
           </ul>
         </div>
-        <div class="quick-link-category">
-          <h3><i class="fas fa-home"></i> Campus Life</h3>
+
+        <!-- Campus Life -->
+        <div class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>Campus Life</h3>
           <ul>
+            <li><a href="#">Housing</a></li>
             <li><a href="#">Orientation</a></li>
-            <li><a href="places.html">Places We've Been</a></li>
+            <li><a href="#">Student Organizations</a></li>
           </ul>
         </div>
-        <div class="quick-link-category">
-          <h3><i class="fas fa-bus"></i> Get on the Bus</h3>
+
+        <!-- Morehouse News -->
+        <div class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <h3>Morehouse News</h3>
           <ul>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="tools.html">Empowerment Tools</a></li>
+            <li><a href="#">Latest Updates</a></li>
+            <li><a href="#">Events Calendar</a></li>
+            <li><a href="#">Press Releases</a></li>
           </ul>
         </div>
-        <div class="quick-link-category">
-          <h3><i class="fas fa-podcast"></i> Media</h3>
+
+        <!-- Bookstore -->
+        <div class="link-card">
+          <div class="link-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3>Bookstore</h3>
           <ul>
-            <li><a href="podcast.html">Podcast</a></li>
-            <li><a href="#">Morehouse News</a></li>
+            <li><a href="#">Shop Online</a></li>
+            <li><a href="#">Campus Store Hours</a></li>
+            <li><a href="#">Textbooks</a></li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer Sections -->
-    <footer class="footer-sections">
-      <div class="footer-grid">
+  <!-- Footer Columns -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <!-- About Column -->
+        <div class="footer-column">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Aid & Accounts</a></li>
+            <li><a href="#">Life</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">News & Events</a></li>
+            <li><a href="#">Open House</a></li>
+          </ul>
+        </div>
+
         <!-- Why Morehouse Column -->
         <div class="footer-column">
           <h3>Why Morehouse</h3>
@@ -141,60 +213,72 @@
             <li><a href="#">The Morehouse Man</a></li>
             <li><a href="#">Partnerships of Purpose</a></li>
             <li><a href="#">Fact Book</a></li>
-          </ul>
-        </div>
-
-        <!-- Our Campus Column -->
-        <div class="footer-column">
-          <h3>Our Campus</h3>
-          <ul>
+            <li class="subheading">Our Campus</li>
             <li><a href="#">Campus Map</a></li>
             <li><a href="#">Virtual Tour</a></li>
+            <li><a href="#">Housing</a></li>
+            <li><a href="#">Directions to Campus</a></li>
             <li><a href="#">Bookstore</a></li>
+            <li><a href="#">Campus Safety</a></li>
+            <li class="subheading">Athletics</li>
+            <li><a href="#">Sports Schedules</a></li>
+            <li><a href="#">Maroon Tigers</a></li>
           </ul>
         </div>
 
-        <!-- Morehouse College Info -->
+        <!-- Empowerment Tools Column -->
         <div class="footer-column">
-          <h3>MOREHOUSE COLLEGE</h3>
+          <h3>Empowerment Tools</h3>
           <ul>
-            <li><a href="#">Academics</a></li>
-            <li><a href="#">Admissions</a></li>
-            <li><a href="#">Aid & Accounts</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Visit</a></li>
-          </ul>
-        </div>
-
-        <!-- Get on the Bus Initiative -->
-        <div class="footer-column">
-          <h3>Get on the Bus</h3>
-          <ul>
+            <li><a href="tools.html">Tools Home</a></li>
+            <li><a href="#">Career Resources</a></li>
+            <li><a href="#">Leadership Development</a></li>
+            <li><a href="#">Professional Skills</a></li>
+            <li><a href="#">Networking Guide</a></li>
+            <li><a href="#">Personal Growth</a></li>
+            <li class="subheading">Get on the Bus</li>
             <li><a href="index.html">Home</a></li>
             <li><a href="places.html">Places We've Been</a></li>
-            <li><a href="stories.html">Student Stories</a></li>
-            <li><a href="tools.html">Empowerment Tools</a></li>
             <li><a href="podcast.html">Podcast</a></li>
           </ul>
         </div>
-      </div>
-    </footer>
-  </main>
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-info">
-        <p>Morehouse College | 830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+        <!-- Share Your Story Column -->
+        <div class="footer-column">
+          <h3>Share Your Story</h3>
+          <ul>
+            <li><a href="stories.html">Student Stories</a></li>
+            <li><a href="#">Submit Your Journey</a></li>
+            <li><a href="#">Alumni Success Stories</a></li>
+            <li><a href="#">Impact Stories</a></li>
+            <li><a href="#">Featured Experiences</a></li>
+            <li class="subheading">Community</li>
+            <li><a href="#">Discussion Forum</a></li>
+            <li><a href="#">Student Spotlights</a></li>
+            <li><a href="#">Share Your Trip</a></li>
+          </ul>
         </div>
       </div>
+
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
+        <div class="footer-logo">
+          <h3>MOREHOUSE COLLEGE</h3>
+          <p>Est. 1867</p>
+        </div>
+        <div class="footer-info">
+          <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
         <p>&copy; 2025 Morehouse College. All rights reserved.</p>
       </div>
     </div>
@@ -202,20 +286,25 @@
 
   <!-- Chat Assistant -->
   <div class="chat-assistant">
-    <div class="chat-icon">
-      <i class="fas fa-comments"></i>
-    </div>
     <div class="chat-bubble">
       <p>Hello! I am here to assist you</p>
+    </div>
+    <div class="chat-icon">
+      <i class="fas fa-comments"></i>
     </div>
   </div>
 
   <script>
-    // Mobile menu toggle for Get on the Bus navigation
+    // Mobile menu toggle
     const navToggle = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
     
-    // You can add mobile menu functionality here if needed
+    // Simple mobile menu functionality
+    document.querySelector('.nav-logo').addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      }
+    });
   </script>
 </body>
 </html>
