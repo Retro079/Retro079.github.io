@@ -1,26 +1,839 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empowerment Tools</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowerment Tools & Activities | GOTB Workshop</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #0a2540;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4dabf7;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            color: #4dabf7;
+            border-bottom: 2px solid #4dabf7;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .page-header h1 {
+            color: #0a2540;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Tool Cards */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .tool-header {
+            background-color: #0a2540;
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .tool-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-header .tool-type {
+            display: inline-block;
+            background-color: #4dabf7;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .tool-body {
+            padding: 1.5rem;
+        }
+        
+        .tool-description {
+            color: #495057;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            background-color: #0a2540;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-link:hover {
+            background-color: #1a3558;
+        }
+        
+        .tool-instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4dabf7;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tool-instructions h4 {
+            color: #0a2540;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-instructions ol, .tool-instructions ul {
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Game Cards */
+        .game-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-header {
+            background-color: #1c7c54;
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .game-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .game-body {
+            padding: 1.5rem;
+        }
+        
+        .game-section {
+            margin-bottom: 2rem;
+        }
+        
+        .game-section h4 {
+            color: #0a2540;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        /* Core Values Section */
+        .values-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .values-section h2 {
+            color: #0a2540;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-item h4 {
+            color: #1c7c54;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a2540;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: #4dabf7;
+        }
+        
+        .footer-text {
+            color: #adb5bd;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Section visibility */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="places.html">Places We've Been</a>
-    <a href="stories.html">Student Stories</a>
-    <a href="tools.html">Empowerment Tools</a>
-    <a href="podcast.html">Podcast</a>
-  </nav>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Empowerment<span>Tools</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-section="tools">Google Tools</a></li>
+                    <li><a href="#" class="nav-link" data-section="games">Activities & Games</a></li>
+                    <li><a href="#" class="nav-link" data-section="values">Core Values</a></li>
+                    <li><a href="#" class="nav-link" data-section="facilitator">Facilitator Notes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <h1>Empowerment Session Tools</h1>
-  <ul>
-    <li><a href="https://doppl.com" target="_blank">Doppl</a></li>
-    <li><a href="https://whisk.com" target="_blank">Whisk</a></li>
-    <li><a href="https://djfx.com" target="_blank">DJ FX</a></li>
-    <li><a href="#">More tools coming soon...</a></li>
-  </ul>
+    <!-- Home Section -->
+    <section id="home" class="page-section active">
+        <div class="container">
+            <div class="page-header">
+                <h1>Empowerment Workshop 3.0</h1>
+                <p>Tools and activities for building brotherhood, identity, and social impact. Created for Get On The Bus (GOTB) programs.</p>
+                <p><em>Curriculum Provided by: Dr. David Wall-Rice | Revised for GOTB New Jersey 2025</em></p>
+            </div>
+            
+            <div class="values-section">
+                <h2>Core Values of the Workshop</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Brotherhood</h4>
+                        <p>Have each other's backs. Build trust through vulnerability and shared support.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Accountability</h4>
+                        <p>Own your actions. Take responsibility for your growth and impact.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Growth</h4>
+                        <p>Leave better than you came. Commit to continuous personal development.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Guidance</h4>
+                        <p>Your job isn't to "lecture." Your job is to guide the room and keep the energy real.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-header">
+                <h2>How to Use This Site</h2>
+                <p>This website contains all the tools and activities from the Empowerment Workshop. Navigate using the menu above to find:</p>
+                <ul style="text-align: left; max-width: 800px; margin: 1rem auto;">
+                    <li><strong>Google Tools:</strong> Interactive digital tools for creative self-expression</li>
+                    <li><strong>Activities & Games:</strong> All workshop games with instructions from a student's perspective</li>
+                    <li><strong>Core Values:</strong> The foundational principles of the workshop</li>
+                    <li><strong>Facilitator Notes:</strong> Important guidance for workshop leaders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Tools Section -->
+    <section id="tools" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1>Google Empowerment Tools</h1>
+                <p>Interactive digital tools for creative self-expression and identity exploration.</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- MusicFX DJ Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>MusicFX DJ</h3>
+                        <p>Create music beats that represent your story</p>
+                        <span class="tool-type">Google Tool</span>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Use this tool to create a short beat that represents your background, then share your "Where I'm From" story over it.
+                        </p>
+                        <a href="https://labs.google/fx/tools/music-fx-dj" class="tool-link" target="_blank">Open MusicFX DJ Tool</a>
+                        
+                        <div class="tool-instructions">
+                            <h4>How to Use (Student Perspective):</h4>
+                            <ol>
+                                <li>Click the link above to open the MusicFX DJ tool</li>
+                                <li>Create a short beat that feels like your background or where you're from</li>
+                                <li>Think about your "Where I'm From" story while the beat plays</li>
+                                <li>When it's your turn, play your beat and share your story over it</li>
+                                <li>Listen for common threads in other students' stories</li>
+                            </ol>
+                            <p><strong>Example:</strong> "Where I'm from, most kids don't know how to read. But when I was 7, my mom would sit me down and make me read books after dinner."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Whisk Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>Whisk (Art Creation)</h3>
+                        <p>Use art to reflect on identity</p>
+                        <span class="tool-type">Google Tool</span>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Create a digital self-portrait or "Picasso" that represents your identity when words aren't enough.
+                        </p>
+                        <a href="https://labs.google/fx" class="tool-link" target="_blank">Open Whisk Tool</a>
+                        
+                        <div class="tool-instructions">
+                            <h4>How to Use (Student Perspective):</h4>
+                            <ol>
+                                <li>Open the Whisk tool using the link above</li>
+                                <li>Think: "If you could make a painting to introduce yourself, what would it be?"</li>
+                                <li>Create a drawing or design that represents your identity</li>
+                                <li>Be prepared to explain your choices to the group</li>
+                                <li>Try to match other students' drawings to the artists during the activity</li>
+                            </ol>
+                            <p><strong>Tip:</strong> Your drawing can be abstract - it doesn't have to look like you. It should represent who you are inside.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doppl Tool -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h3>Doppl (Style & Outfits)</h3>
+                        <p>Connect style to confidence and leadership</p>
+                        <span class="tool-type">Google Tool</span>
+                    </div>
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            Design an outfit for a professional setting and explain how it reflects who you are.
+                        </p>
+                        <a href="https://labs.google/doppl" class="tool-link" target="_blank">Open Doppl Tool</a>
+                        
+                        <div class="tool-instructions">
+                            <h4>How to Use (Student Perspective):</h4>
+                            <ol>
+                                <li>Open the Doppl tool using the link above</li>
+                                <li>Break into small groups if instructed</li>
+                                <li>Design or describe an outfit for: job interview, networking event, or formal occasion</li>
+                                <li>Present your outfit to the group and explain how it reflects your identity</li>
+                                <li>Discuss why presentation matters in leadership</li>
+                            </ol>
+                            <p><strong>Remember:</strong> At Morehouse, presentation matters. How you present yourself connects to confidence and how people see you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities & Games Section -->
+    <section id="games" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1>Workshop Activities & Games</h1>
+                <p>Interactive games and activities for building brotherhood, exploring identity, and creating impact.</p>
+            </div>
+            
+            <!-- Identity Section Games -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>Section 2: Identity Activities</h3>
+                    <p>Explore who you are through creative expression</p>
+                </div>
+                <div class="game-body">
+                    <div class="game-section">
+                        <h4>Activity 1: Where I'm From (with MusicFX DJ)</h4>
+                        <p><strong>What you'll do:</strong> Create a short beat that represents your background, then share your "Where I'm From" story over it.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Listen to the facilitator's example first</li>
+                            <li>Create your beat using the MusicFX DJ tool</li>
+                            <li>Start your story with "Where I'm from..." and share something meaningful</li>
+                            <li>Play your beat and share your story when it's your turn</li>
+                            <li>Listen actively to others' stories - look for commonalities</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 2: Who I'm Not</h4>
+                        <p><strong>What you'll do:</strong> Flip negative self-statements into positive affirmations.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Think of a negative thing you sometimes say about yourself</li>
+                            <li>Flip it into a positive statement (Example: "I'm not weak → I am strong")</li>
+                            <li>Share your positive statement with the group when ready</li>
+                            <li>The group will celebrate each positive statement</li>
+                            <li>Really try to believe the positive statement about yourself</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 3: Pick Your Picasso (with Whisk)</h4>
+                        <p><strong>What you'll do:</strong> Create an art piece that represents your identity.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Get an index card and pen/pencil if not using the digital tool</li>
+                            <li>Draw a tattoo you would get or a self-portrait that represents you</li>
+                            <li>You have 2-3 minutes to create your "Picasso"</li>
+                            <li>All cards will be collected and redistributed</li>
+                            <li>Try to match the drawings to the artists in the room</li>
+                            <li>Explain your drawing when it's returned to you</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brotherhood Section Games -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>Section 3: Brotherhood Activities</h3>
+                    <p>Build trust through vulnerability and shared support</p>
+                </div>
+                <div class="game-body">
+                    <div class="game-section">
+                        <h4>Activity 1: Fear For Me</h4>
+                        <p><strong>What you'll do:</strong> Share a fear and receive support from others.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Think of one fear you're comfortable sharing</li>
+                            <li>When it's your turn, share your fear with the group</li>
+                            <li>The next person will respond with support, encouragement, or advice</li>
+                            <li>Listen carefully when others share - offer genuine support</li>
+                            <li>Remember: What's said here, stays here</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 2: If You Knew Me</h4>
+                        <p><strong>What you'll do:</strong> Complete the sentence "If you really knew me, you'd know..."</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Listen to the facilitator's example first</li>
+                            <li>Complete the sentence: "If you really knew me, you'd know..."</li>
+                            <li>Share something meaningful about yourself</li>
+                            <li>Go around the circle - you can pass if you need to</li>
+                            <li>Push yourself to share something deeper if you're comfortable</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 3: The Line Game</h4>
+                        <p><strong>What you'll do:</strong> Step forward if a statement applies to you.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Stand on one side of the tape line on the floor</li>
+                            <li>Listen carefully to each question read by the facilitator</li>
+                            <li>If the statement applies to you, step forward over the line</li>
+                            <li>Look around to see who else steps forward</li>
+                            <li>Questions will range from light to deeper</li>
+                            <li>You don't have to explain why you stepped forward</li>
+                        </ol>
+                        <p><strong>Example Questions:</strong> "Do you own a pair of Jordans?" "Do you live with both parents?" "Do you know someone in a gang?"</p>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 4: A Warm Wind Blows</h4>
+                        <p><strong>What you'll do:</strong> A movement game that highlights shared experiences.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Form a big circle with enough space to move</li>
+                            <li>Listen for the phrase: "A warm wind blows for anyone who..."</li>
+                            <li>If the description applies to you, move to a different spot in the circle</li>
+                            <li>The last person to find a spot goes to the middle and says the next phrase</li>
+                            <li>Be honest about whether the trait applies to you</li>
+                            <li>Move quickly but safely to find a new spot</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action & Impact Section -->
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>Section 4: Action & Impact Activities</h3>
+                    <p>Connect personal growth to social change</p>
+                </div>
+                <div class="game-body">
+                    <div class="game-section">
+                        <h4>Activity 1: Spotlight on Change Agents</h4>
+                        <p><strong>What you'll do:</strong> Research and discuss someone making a difference.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Research or think about someone making a difference (local, national, or global)</li>
+                            <li>Prepare to present this person to the group</li>
+                            <li>Share: Who they are, what they do, why they inspire you</li>
+                            <li>Listen to others' presentations</li>
+                            <li>Discuss what makes an effective change agent</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Activity 2: Protecting Our Future (Letter Writing)</h4>
+                        <p><strong>What you'll do:</strong> Write letters supporting funding for HBCUs and minority-serving institutions.</p>
+                        <p><strong>Student Instructions:</strong></p>
+                        <ol>
+                            <li>Get paper and pen</li>
+                            <li>Write a letter to a representative supporting funding for HBCUs, HSIs, TCUs, and MSIs</li>
+                            <li>Explain why education equity matters to you</li>
+                            <li>Share your letter with the group if comfortable</li>
+                            <li>Discuss why we should care about schools beyond our own</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1>Core Values & Workshop Principles</h1>
+                <p>The foundational principles that guide the Empowerment Workshop experience.</p>
+            </div>
+            
+            <div class="values-section">
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Brotherhood</h4>
+                        <p>Have each other's backs. Build trust through vulnerability and shared support. Brotherhood means I've got your back, and you've got mine.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Accountability</h4>
+                        <p>Own your actions. Take responsibility for your growth and impact. Be honest about your strengths and areas for improvement.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Growth</h4>
+                        <p>Leave better than you came. Commit to continuous personal development. Embrace challenges as opportunities to learn.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Guidance Over Lecture</h4>
+                        <p>Your job isn't to "lecture." Your job is to guide the room and keep the energy real. Facilitators are here to support, not dictate.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Respect the Space</h4>
+                        <p>Listen actively. Share honestly. What's said here, stays here. Create a safe environment for vulnerability.</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Energy Matters</h4>
+                        <p>Keep energy high whether 10 or 100 students. Your engagement sets the tone for the entire workshop.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: #f1f3f5; border-radius: 8px;">
+                    <h3 style="color: #0a2540; margin-bottom: 1rem;">Setting the Tone</h3>
+                    <p><strong>Why first impressions matter:</strong> They set the foundation for trust and openness in the workshop. When you introduce yourself with pride, it gives others permission to do the same.</p>
+                    <p><strong>Ice Breakers:</strong> These activities help break tension and allow everyone to see who's in the room. Don't rush through them - only move on when the room feels ready.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilitator Notes Section -->
+    <section id="facilitator" class="page-section">
+        <div class="container">
+            <div class="page-header">
+                <h1>Facilitator Notes & FAQ</h1>
+                <p>Important guidance for workshop leaders and frequently asked questions.</p>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>Essential Facilitator Guidelines</h3>
+                </div>
+                <div class="game-body">
+                    <div class="game-section">
+                        <h4>Critical Rules for Facilitators</h4>
+                        <ul>
+                            <li><strong>Keep energy high</strong> whether there are 10 or 100 students in the room</li>
+                            <li><strong>If a student shares about self-harm</strong> → report it immediately to the chaperone or local authority</li>
+                            <li><strong>Never fake knowledge.</strong> If you don't know, say "I don't know"</li>
+                            <li><strong>No phone numbers.</strong> IG/email is fine for contact</li>
+                            <li><strong>If you need help, call your support</strong> (don't text) - see numbers below</li>
+                            <li><strong>You don't need to get through the entire curriculum!</strong> The flow of your classroom is up to you</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Support Contacts (CALL, DON'T TEXT)</h4>
+                        <ul>
+                            <li><strong>Carvin:</strong> 224-281-3473</li>
+                            <li><strong>TJ:</strong> 334-313-7081</li>
+                            <li>Call 2-3 times if needed - facilitators are often on the move</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h4>Frequently Asked Questions</h4>
+                        
+                        <p><strong>1. What do we do when we run out of activities?</strong></p>
+                        <p>Spend time talking to the students. Ask them how they felt about the activities they did. If they're comfortable, they'll start sharing more about their lives.</p>
+                        
+                        <p><strong>2. What if I only have 10 kids in my room?</strong></p>
+                        <p>Run through the curriculum like there are 100 kids in the room. Keep the same energy and give your all.</p>
+                        
+                        <p><strong>3. Can I take pictures?</strong></p>
+                        <p>Yes. Make sure to tag Morehouse, Bonner, SGA, etc.</p>
+                        
+                        <p><strong>4. What if I don't know how to run an activity?</strong></p>
+                        <p>Read the directions. If you have someone who has participated in GOTB before, ask them. If they don't know, call the support numbers above.</p>
+                        
+                        <p><strong>5. I have too many students, I need extra support. Who do I call?</strong></p>
+                        <p>Call the support contacts listed above.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-header" style="margin-top: 3rem;">
+                <h2>Closing Affirmation</h2>
+                <p style="font-size: 1.2rem; font-style: italic; color: #0a2540;">
+                    "Win the day by winning the hour. Brotherhood means I've got your back, and you've got mine."
+                </p>
+                <p style="margin-top: 1rem;"><strong>Et Facta Est Lux.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Empowerment<span>Tools</span></div>
+            <p class="footer-text">Created for Get On The Bus (GOTB) Empowerment Workshop 3.0</p>
+            <p class="footer-text">Curriculum Provided by: Dr. David Wall-Rice | Revised for GOTB New Jersey 2025</p>
+            <p class="footer-text">Originally created by Grant Bennett | Revised by Horace Ryans III, Aaron Burnett, and Carvin Pugh</p>
+            <p class="footer-text" style="margin-top: 1rem; font-size: 0.9rem;">This is a living document and will continue to be developed as time goes on.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            
+            // Set active section
+            function setActiveSection(sectionId) {
+                // Update nav links
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                // Show corresponding section
+                pageSections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                
+                // Update URL hash
+                window.location.hash = sectionId;
+            }
+            
+            // Nav link click events
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    setActiveSection(sectionId);
+                    
+                    // Scroll to top of page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Check for hash on page load
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                setActiveSection(hash);
+            } else {
+                setActiveSection('home');
+            }
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
