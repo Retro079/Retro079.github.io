@@ -245,66 +245,29 @@
       transition: var(--transition);
     }
 
-    /* Hero Section */
-    .empowerment-hero {
-      position: relative;
-      height: 70vh;
-      min-height: 500px;
-      background: linear-gradient(135deg, rgba(139, 30, 63, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%),
-                  url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Simple Page Header */
+    .page-header {
+      background-color: var(--white);
+      padding: 120px 0 60px;
       text-align: center;
-      color: var(--white);
       margin-top: 85px;
     }
 
-    .empowerment-hero-content {
-      max-width: 800px;
-      padding: 0 20px;
-    }
-
-    .empowerment-hero h1 {
+    .page-header h1 {
+      color: var(--maroon);
       font-size: 3.5rem;
       font-weight: 900 !important;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
       letter-spacing: 2px;
       line-height: 1.1;
     }
 
-    .empowerment-hero p {
+    .page-header p {
+      color: var(--gray-medium);
       font-size: 1.5rem;
       font-weight: 700 !important;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-      opacity: 0.9;
-    }
-
-    .hero-cta {
-      padding: 18px 45px;
-      background: var(--gold);
-      color: var(--black);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 800 !important;
-      transition: var(--transition);
-      font-size: 1.2rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      border: 2px solid var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: inline-block;
-    }
-
-    .hero-cta:hover {
-      background: transparent;
-      color: var(--gold);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     /* Section Styling */
@@ -878,7 +841,7 @@
     }
 
     @media screen and (max-width: 1024px) {
-      .empowerment-hero h1 {
+      .page-header h1 {
         font-size: 3.2rem;
       }
       
@@ -962,17 +925,16 @@
         font-size: 0.9rem;
       }
       
-      .empowerment-hero {
+      .page-header {
         margin-top: 70px;
-        height: 70vh;
-        min-height: 500px;
+        padding: 80px 0 40px;
       }
       
-      .empowerment-hero h1 {
+      .page-header h1 {
         font-size: 2.5rem;
       }
       
-      .empowerment-hero p {
+      .page-header p {
         font-size: 1.1rem;
       }
       
@@ -1005,7 +967,7 @@
     }
 
     @media screen and (max-width: 480px) {
-      .empowerment-hero h1 {
+      .page-header h1 {
         font-size: 2rem;
       }
       
@@ -1037,6 +999,7 @@
       }
     }
 
+    .page-header,
     .google-tools-section,
     .activities-section,
     .core-values-section,
@@ -1083,6 +1046,12 @@
         </ul>
       </div>
 
+      <!-- Right: Action Buttons -->
+      <div class="nav-actions">
+        <a href="#" class="nav-action-btn visit-btn">VISIT</a>
+        <a href="#" class="nav-action-btn give-btn">GIVE</a>
+      </div>
+
       <!-- Mobile Menu Toggle -->
       <button class="mobile-toggle">
         <i class="fas fa-bars"></i>
@@ -1090,17 +1059,13 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="empowerment-hero">
-    <div class="empowerment-hero-content">
+  <!-- Simple Page Header (Replaces Hero Section) -->
+  <header class="page-header">
+    <div class="container">
       <h1>Empowerment Tools & Activities</h1>
       <p>Interactive resources for building brotherhood, exploring identity, and creating social impact</p>
-      <a href="#tools" class="hero-cta">
-        <i class="fas fa-tools"></i>
-        Explore Tools
-      </a>
     </div>
-  </section>
+  </header>
 
   <!-- Google Tools Section -->
   <section id="tools" class="google-tools-section section-padding">
