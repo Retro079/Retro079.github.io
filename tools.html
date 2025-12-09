@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empowerment Tools | Get on the Bus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* CSS Variables - Match Morehouse Theme */
+    /* CSS Variables - Match Index Page Theme */
     :root {
       --maroon: #8B1E3F;
       --maroon-dark: #6a1631;
@@ -32,14 +32,13 @@
     body {
       font-family: 'Open Sans', sans-serif;
       color: #333;
-      background-color: var(--gray-light);
+      background-color: var(--white);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      color: var(--maroon);
     }
 
     .container {
@@ -48,7 +47,7 @@
       padding: 0 20px;
     }
 
-    /* Navigation - Match Morehouse Site */
+    /* Navigation - EXACT SAME as Index Page */
     .navbar {
       position: fixed;
       top: 0;
@@ -72,12 +71,7 @@
       align-items: center;
     }
 
-    .nav-brand .logo-link {
-      text-decoration: none;
-      color: var(--maroon);
-    }
-
-    .logo-text {
+    .college-logo {
       display: flex;
       flex-direction: column;
     }
@@ -87,6 +81,7 @@
       font-weight: 800;
       font-size: 1.5rem;
       line-height: 1.2;
+      color: var(--maroon);
     }
 
     .logo-sub {
@@ -97,12 +92,7 @@
       margin-top: 3px;
     }
 
-    .nav-center {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
+    /* Navigation Menu - EXACT SAME STYLING */
     .nav-menu {
       display: flex;
       list-style: none;
@@ -136,6 +126,34 @@
       width: 100%;
       height: 3px;
       background-color: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-action-btn {
+      padding: 10px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .visit-btn {
+      background: var(--maroon);
+      color: var(--white);
+    }
+
+    .give-btn {
+      background: var(--gold);
+      color: var(--maroon);
+    }
+
+    .nav-action-btn:hover {
+      transform: translateY(-3px);
     }
 
     .mobile-toggle {
@@ -423,6 +441,7 @@
     .activity-header h3 {
       font-size: 1.4rem;
       margin-bottom: 5px;
+      color: var(--maroon);
     }
 
     .activity-section {
@@ -458,102 +477,26 @@
       color: var(--maroon);
     }
 
-    /* Facilitator Notes */
-    .facilitator-section {
+    /* Student FAQ Section */
+    .student-faq-section {
       background-color: var(--white);
     }
 
-    .facilitator-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .facilitator-card {
-      background: var(--white);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--maroon-light);
-    }
-
-    .facilitator-card h3 {
-      margin-bottom: 20px;
-      color: var(--maroon);
-    }
-
-    .facilitator-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .facilitator-card li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-      padding-left: 25px;
-      position: relative;
-    }
-
-    .facilitator-card li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .contact-info {
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      color: var(--white);
-      padding: 40px;
-      border-radius: 15px;
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .contact-info h3 {
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    .contact-details {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .contact-person {
-      text-align: center;
-    }
-
-    .contact-person h4 {
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      background-color: var(--gray-light);
-    }
-
-    .faq-container {
+    .student-faq-container {
       max-width: 800px;
       margin: 0 auto;
     }
 
-    .faq-item {
+    .student-faq-item {
       background: var(--white);
       border-radius: 10px;
       margin-bottom: 15px;
       overflow: hidden;
       box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--gold);
     }
 
-    .faq-question {
+    .student-faq-question {
       padding: 20px;
       cursor: pointer;
       display: flex;
@@ -562,33 +505,107 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       color: var(--maroon);
+      background: #f8f9fa;
     }
 
-    .faq-question i {
+    .student-faq-question i {
       transition: var(--transition);
+      color: var(--gold);
     }
 
-    .faq-answer {
+    .student-faq-answer {
       padding: 0 20px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
 
-    .faq-item.active .faq-answer {
+    .student-faq-item.active .student-faq-answer {
       padding: 0 20px 20px;
       max-height: 500px;
     }
 
-    .faq-item.active .faq-question i {
+    .student-faq-item.active .student-faq-question i {
       transform: rotate(180deg);
     }
 
-    /* Footer - Match Morehouse Site */
+    /* Core Values Section */
+    .core-values-section {
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      color: var(--white);
+      padding: 80px 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: var(--transition);
+    }
+
+    .value-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .value-item h3 {
+      color: var(--gold);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .value-item p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+    }
+
+    /* Footer - Match Index Page */
     .main-footer {
       background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
       color: var(--white);
       padding: 50px 0 20px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: var(--gold);
     }
 
     .footer-bottom {
@@ -598,15 +615,17 @@
       flex-wrap: wrap;
       gap: 30px;
       margin-bottom: 40px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .footer-logo-text h3 {
+    .footer-logo h3 {
       color: var(--white);
       font-size: 1.8rem;
       margin-bottom: 5px;
     }
 
-    .footer-logo-text p {
+    .footer-logo p {
       color: var(--gold);
       font-weight: 600;
     }
@@ -617,6 +636,7 @@
 
     .footer-info p {
       margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .social-links {
@@ -714,7 +734,7 @@
         display: block;
       }
 
-      .nav-center {
+      .nav-menu {
         position: fixed;
         top: 70px;
         left: 0;
@@ -722,21 +742,22 @@
         background: var(--white);
         padding: 20px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        gap: 15px;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
       }
 
-      .nav-center.active {
+      .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
       }
 
-      .nav-menu {
-        flex-direction: column;
-        gap: 15px;
+      .nav-actions {
+        display: none;
       }
 
       .section-title {
@@ -754,11 +775,6 @@
 
       .social-links {
         justify-content: center;
-      }
-
-      .contact-details {
-        flex-direction: column;
-        gap: 20px;
       }
     }
 
@@ -780,27 +796,25 @@
 </head>
 <body>
 
-  <!-- Navigation - Match Morehouse Site -->
+  <!-- Navigation - EXACT SAME as Index Page -->
   <nav class="navbar">
     <div class="nav-container">
-      <!-- Brand -->
+      <!-- Left: Morehouse College Logo with Get on the Bus -->
       <div class="nav-brand">
-        <a href="index.html" class="logo-link">
-          <div class="logo-text">
-            <div class="logo-main">MOREHOUSE COLLEGE</div>
-            <div class="logo-sub">Get on the Bus</div>
-          </div>
-        </a>
+        <div class="college-logo">
+          <div class="logo-main">MOREHOUSE COLLEGE</div>
+          <div class="logo-sub">Get on the Bus</div>
+        </div>
       </div>
 
-      <!-- Navigation Links -->
+      <!-- Top Bar Navigation Links -->
       <div class="nav-center">
         <ul class="nav-menu">
           <li class="nav-item">
             <a href="index.html" class="nav-link">About</a>
           </li>
           <li class="nav-item">
-            <a href="why-morehouse.html" class="nav-link">Why Morehouse</a>
+            <a href="Why Morehouse.html" class="nav-link">Why Morehouse</a>
           </li>
           <li class="nav-item">
             <a href="tools.html" class="nav-link active">Empowerment Tools</a>
@@ -812,6 +826,12 @@
             <a href="places.html" class="nav-link">Places We've Been</a>
           </li>
         </ul>
+      </div>
+
+      <!-- Right: Action Buttons -->
+      <div class="nav-actions">
+        <a href="#" class="nav-action-btn visit-btn">VISIT</a>
+        <a href="#" class="nav-action-btn give-btn">GIVE</a>
       </div>
 
       <!-- Mobile Menu Toggle -->
@@ -1158,113 +1178,170 @@
     </div>
   </section>
 
-  <!-- Facilitator Notes Section -->
-  <section class="facilitator-section section-padding">
+  <!-- Core Values Section -->
+  <section class="core-values-section section-padding">
     <div class="container">
-      <h2 class="section-title">Facilitator Notes</h2>
-      <p class="section-subtitle">Important guidelines for workshop leaders</p>
+      <h2 class="section-title" style="color: white;">Workshop Core Values</h2>
+      <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">The principles that guide our empowerment workshops</p>
       
-      <div class="facilitator-grid">
-        <div class="facilitator-card">
-          <h3>Essential Guidelines</h3>
-          <ul>
-            <li>Keep energy high whether 10 or 100 students</li>
-            <li>If a student shares about self-harm → report it immediately</li>
-            <li>Never fake knowledge. If you don't know, say "I don't know"</li>
-            <li>No phone numbers. IG/email is fine</li>
-            <li>If you need help, call your support (don't text)</li>
-            <li>You don't need to get through the entire curriculum!</li>
-          </ul>
+      <div class="values-grid">
+        <div class="value-item">
+          <h3>Brotherhood</h3>
+          <p>Have each other's backs. Build trust through vulnerability and shared support.</p>
         </div>
         
-        <div class="facilitator-card">
-          <h3>Core Values</h3>
-          <ul>
-            <li>Brotherhood – Have each other's backs</li>
-            <li>Accountability – Own your actions</li>
-            <li>Growth – Leave better than you came</li>
-            <li>Your job isn't to "lecture." Your job is to guide the room and keep the energy real</li>
-          </ul>
+        <div class="value-item">
+          <h3>Accountability</h3>
+          <p>Own your actions. Take responsibility for your growth and impact.</p>
+        </div>
+        
+        <div class="value-item">
+          <h3>Growth</h3>
+          <p>Leave better than you came. Commit to continuous personal development.</p>
+        </div>
+        
+        <div class="value-item">
+          <h3>Guidance</h3>
+          <p>Your job isn't to "lecture." Your job is to guide the room and keep the energy real.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Student FAQ Section -->
+  <section class="student-faq-section section-padding">
+    <div class="container">
+      <h2 class="section-title">Student Questions & Answers</h2>
+      <p class="section-subtitle">Common questions from students participating in the workshops for the first time</p>
       
-      <div class="contact-info">
-        <h3>Need Support? Call Us!</h3>
-        <p>DO NOT TEXT. CALL! (Call 2-3 times, we will always be on the move.)</p>
-        
-        <div class="contact-details">
-          <div class="contact-person">
-            <h4>Carvin</h4>
-            <p>224-281-3473</p>
+      <div class="student-faq-container">
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>What if I'm nervous about sharing my story in "Where I'm From"?</span>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="contact-person">
-            <h4>TJ</h4>
-            <p>334-313-7081</p>
+          <div class="student-faq-answer">
+            <p>It's completely normal to feel nervous! Remember that everyone is sharing something personal. Start with something simple - it doesn't have to be your deepest secret. The goal is to find connections with others, not to tell your entire life story. Most students find that once they start sharing, the nerves go away.</p>
+          </div>
+        </div>
+        
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>Do I have to be good at drawing for "Pick Your Picasso"?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="student-faq-answer">
+            <p>Not at all! This isn't an art contest. Your drawing can be simple shapes, symbols, or even just colors that represent you. The focus is on what the drawing means to you, not how well it's drawn. Many students use abstract symbols that have personal meaning.</p>
+          </div>
+        </div>
+        
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>What if I can't think of a fear to share in "Fear For Me"?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="student-faq-answer">
+            <p>It's okay to share something small or simple! It doesn't have to be a major fear. Examples could be: fear of public speaking, fear of not doing well in school, or even fear of trying something new. The activity is about building trust, not about having the "biggest" fear.</p>
+          </div>
+        </div>
+        
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>What happens if I don't want to answer a question in "The Line Game"?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="student-faq-answer">
+            <p>You can choose not to step forward for any question. No one will ask why you didn't step forward. The game is about finding connections, not putting anyone on the spot. You only share what you're comfortable with.</p>
+          </div>
+        </div>
+        
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>Do I need to bring anything for these activities?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="student-faq-answer">
+            <p>No, everything is provided! For the digital tools, you'll use the provided devices or your own phone if you prefer. For art activities, paper and pens are provided. Just bring your willingness to participate and an open mind!</p>
+          </div>
+        </div>
+        
+        <div class="student-faq-item">
+          <div class="student-faq-question">
+            <span>What if I don't know anyone at the workshop?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="student-faq-answer">
+            <p>That's perfect! Most students come in not knowing anyone. The activities are specifically designed to help you get to know others in a comfortable way. By the end of the first activity, you'll already have things in common with other students.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="faq-section section-padding">
-    <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Common questions from facilitators and students</p>
-      
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">
-            What do we do when we run out of activities?
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Spend time talking to the students. Ask them how they felt about the activities they did. If they're comfortable, they'll start sharing more about their lives.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            What if I only have 10 kids in my room?
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Run through the curriculum like there are 100 kids in the room. Keep the same energy and give your all.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            Can I take pictures?
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Yes. Make sure to tag Morehouse, Bonner, SGA, etc.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            What if I don't know how to run an activity?
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Read the directions. If you have someone who has participated in GOTB before, ask them. If they don't know, call the support numbers above.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer - Match Index Page -->
   <footer class="main-footer">
     <div class="container">
+      <!-- Footer Columns with Quick Links -->
+      <div class="footer-columns">
+        <!-- About Column -->
+        <div class="footer-column">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="#">Aid & Accounts</a></li>
+            <li><a href="#">Campus Life</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">News & Events</a></li>
+            <li><a href="#">Open House</a></li>
+          </ul>
+        </div>
+
+        <!-- Why Morehouse Column -->
+        <div class="footer-column">
+          <h3>Why Morehouse</h3>
+          <ul>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Missions & Values</a></li>
+            <li><a href="#">The Morehouse Man</a></li>
+            <li><a href="#">Partnerships of Purpose</a></li>
+            <li><a href="#">Fact Book</a></li>
+            <li><a href="#">Campus Map</a></li>
+            <li><a href="#">Virtual Tour</a></li>
+            <li><a href="#">Housing</a></li>
+            <li><a href="#">Athletics</a></li>
+          </ul>
+        </div>
+
+        <!-- Empowerment Tools Column -->
+        <div class="footer-column">
+          <h3>Empowerment Tools</h3>
+          <ul>
+            <li><a href="tools.html">All Tools</a></li>
+            <li><a href="#">Identity Activities</a></li>
+            <li><a href="#">Brotherhood Games</a></li>
+            <li><a href="#">Action Projects</a></li>
+            <li><a href="#">Digital Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Share Your Story Column -->
+        <div class="footer-column">
+          <h3>Share Your Story</h3>
+          <ul>
+            <li><a href="stories.html">Student Stories</a></li>
+            <li><a href="#">Submit Your Journey</a></li>
+            <li><a href="#">Alumni Success Stories</a></li>
+            <li><a href="#">Impact Stories</a></li>
+            <li><a href="#">Featured Experiences</a></li>
+          </ul>
+        </div>
+      </div>
+
       <div class="footer-bottom">
         <div class="footer-logo">
-          <div class="footer-logo-text">
-            <h3>MOREHOUSE COLLEGE</h3>
-            <p>Get on the Bus</p>
-          </div>
+          <h3>MOREHOUSE COLLEGE</h3>
+          <p>Get on the Bus</p>
         </div>
         <div class="footer-info">
           <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
@@ -1294,10 +1371,10 @@
   <script>
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const navCenter = document.querySelector('.nav-center');
+    const navMenu = document.querySelector('.nav-menu');
 
     mobileToggle.addEventListener('click', () => {
-      navCenter.classList.toggle('active');
+      navMenu.classList.toggle('active');
       mobileToggle.querySelector('i').classList.toggle('fa-bars');
       mobileToggle.querySelector('i').classList.toggle('fa-times');
     });
@@ -1305,7 +1382,7 @@
     // Close menu when clicking outside on mobile
     document.addEventListener('click', (e) => {
       if (window.innerWidth <= 768 && !e.target.closest('.navbar')) {
-        navCenter.classList.remove('active');
+        navMenu.classList.remove('active');
         mobileToggle.querySelector('i').classList.remove('fa-times');
         mobileToggle.querySelector('i').classList.add('fa-bars');
       }
@@ -1336,11 +1413,11 @@
       });
     });
 
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
+    // Student FAQ Accordion
+    const faqItems = document.querySelectorAll('.student-faq-item');
     
     faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
+      const question = item.querySelector('.student-faq-question');
       
       question.addEventListener('click', () => {
         // Close other items
@@ -1367,7 +1444,7 @@
         if (targetElement) {
           // Close mobile menu if open
           if (window.innerWidth <= 768) {
-            navCenter.classList.remove('active');
+            navMenu.classList.remove('active');
             mobileToggle.querySelector('i').classList.remove('fa-times');
             mobileToggle.querySelector('i').classList.add('fa-bars');
           }
@@ -1391,7 +1468,7 @@
     }, { threshold: 0.1 });
 
     // Observe cards for animation
-    document.querySelectorAll('.tool-card, .activity-card, .facilitator-card').forEach(el => {
+    document.querySelectorAll('.tool-card, .activity-card, .value-item').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1401,7 +1478,7 @@
     // Chat assistant functionality
     const chatIcon = document.querySelector('.chat-icon');
     chatIcon.addEventListener('click', () => {
-      alert('Chat feature coming soon! For now, please email or call the support contacts listed above.');
+      alert('Need help with the tools or activities? Ask your workshop facilitator for guidance!');
     });
   </script>
 </body>
