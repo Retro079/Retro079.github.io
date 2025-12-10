@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+         <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,251 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Image Slideshow Styles */
+    .hero-slideshow {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      margin-top: 85px;
+    }
+
+    .slideshow-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Overlay for better text visibility */
+    .hero-slideshow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(139, 30, 63, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      width: 100%;
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero-overlay h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .hero-overlay p {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      padding: 18px 45px;
+      background: #D4AF37;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 800;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      border: 2px solid #D4AF37;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: transparent;
+      color: #D4AF37;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Slideshow Controls */
+    .slideshow-controls {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .slideshow-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #D4AF37;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .slideshow-btn:hover {
+      background: #D4AF37;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    .slideshow-dots {
+      display: flex;
+      gap: 10px;
+    }
+
+    .slideshow-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slideshow-dot.active {
+      background: #D4AF37;
+      transform: scale(1.2);
+    }
+
+    /* Slide Indicators */
+    .slide-indicator {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    /* Auto-play indicator */
+    .auto-play-toggle {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .auto-play-toggle:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .hero-slideshow {
+        margin-top: 70px;
+        height: 70vh;
+        min-height: 500px;
+      }
+
+      .hero-overlay h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-overlay p {
+        font-size: 1.1rem;
+      }
+
+      .slideshow-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .slide-indicator {
+        top: 20px;
+        right: 20px;
+        font-size: 0.8rem;
+      }
+
+      .auto-play-toggle {
+        bottom: 20px;
+        right: 20px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .hero-slideshow {
+        height: 60vh;
+        min-height: 400px;
+      }
+
+      .hero-overlay h1 {
+        font-size: 2rem;
+      }
+
+      .slideshow-controls {
+        bottom: 20px;
+      }
+
+      .slideshow-dot {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -37,7 +282,8 @@
           <li class="nav-item">
             <a href="stories.html" class="nav-link">Share Your Story</a>
           </li>
-          
+        </ul>
+      </div>
 
       <!-- Right: Action Buttons -->
       <div class="nav-actions">
@@ -51,20 +297,62 @@
     </div>
   </nav>
 
-  <!-- Video Hero Section -->
-  <header class="hero">
-    <video autoplay muted loop id="bg-video">
-      <source src="morehouse-bg.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <!-- Image Slideshow Hero Section -->
+  <header class="hero-slideshow">
+    <!-- Slideshow Images -->
+    <div class="slideshow-container">
+      <!-- Slide 1 -->
+      <div class="slide active" style="background-image: url('https://news.morehouse.edu/hubfs/Imported_Blog_Media/Morehouse-4-1-1.jpg');"></div>
+      
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image: url('https://news.morehouse.edu/hs-fs/hubfs/Imported_Blog_Media/Morehouse-3-1-1.jpg?width=1024&height=683&name=Morehouse-3-1-1.jpg');"></div>
+      
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image: url('https://3.files.edl.io/d07c/24/09/16/190846-78871f52-c890-4994-8beb-8513398e4b61.jpeg');"></div>
+      
+      <!-- Slide 4 -->
+      <div class="slide" style="background-image: url('https://news.morehouse.edu/hs-fs/hubfs/Image.jpeg?width=536&height=357&name=Image.jpeg');"></div>
+      
+      <!-- Slide 5 -->
+      <div class="slide" style="background-image: url('https://tysonmiddlehigh.eastorange.k12.nj.us/apps/api/images/66e881dcc32a092a2decbdce/src');"></div>
+      
+      <!-- Slide 6 -->
+      <div class="slide" style="background-image: url('https://3.files.edl.io/9955/25/09/15/173441-7349efb4-60c5-4658-ae4e-c8da5ce03dec.jpeg');"></div>
+    </div>
+
+    <!-- Slide Indicator -->
+    <div class="slide-indicator">
+      <span id="current-slide">1</span> / <span id="total-slides">6</span>
+    </div>
+
+    <!-- Hero Content Overlay -->
     <div class="hero-overlay">
       <h1>Men of Morehouse Get on the Bus</h1>
       <p>Empowering students through travel, exposure, and community</p>
       <a href="stories.html" class="cta-button">Share Your Story</a>
     </div>
-  </header>
 
- 
+    <!-- Slideshow Controls -->
+    <div class="slideshow-controls">
+      <button class="slideshow-btn" id="prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <div class="slideshow-dots" id="slide-dots">
+        <!-- Dots will be generated by JavaScript -->
+      </div>
+      
+      <button class="slideshow-btn" id="next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Auto-play Toggle -->
+    <div class="auto-play-toggle" id="auto-play-toggle">
+      <i class="fas fa-pause"></i>
+      <span>Pause Slideshow</span>
+    </div>
+  </header>
 
   <!-- Updated Stats Section -->
   <section class="stats-section">
@@ -79,7 +367,7 @@
       </div>
       <div class="stat-item">
         <h3>#25K+</h3>
-        <p>Total Miles Traveled </p>
+        <p>Total Miles Traveled</p>
       </div>
       <div class="stat-item">
         <h3>#8</h3>
@@ -207,10 +495,6 @@
   <!-- Footer with Quick Links -->
   <footer class="main-footer">
     <div class="container">
-      <!-- Footer Columns with Quick Links -->
-
-        
-
       <div class="footer-bottom">
         <div class="footer-logo">
           <h3>MOREHOUSE COLLEGE</h3>
@@ -234,8 +518,158 @@
     </div>
   </footer>
 
-  
   <script>
+    // Slideshow JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const slideDotsContainer = document.getElementById('slide-dots');
+      const currentSlideSpan = document.getElementById('current-slide');
+      const totalSlidesSpan = document.getElementById('total-slides');
+      const autoPlayToggle = document.getElementById('auto-play-toggle');
+      const autoPlayIcon = autoPlayToggle.querySelector('i');
+      const autoPlayText = autoPlayToggle.querySelector('span');
+      
+      let currentSlideIndex = 0;
+      let autoPlayInterval;
+      let isAutoPlaying = true;
+      const slideInterval = 5000; // 5 seconds per slide
+
+      // Initialize total slides counter
+      totalSlidesSpan.textContent = slides.length;
+
+      // Create dots for each slide
+      slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('slideshow-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        slideDotsContainer.appendChild(dot);
+      });
+
+      const dots = document.querySelectorAll('.slideshow-dot');
+
+      // Function to go to specific slide
+      function goToSlide(index) {
+        slides[currentSlideIndex].classList.remove('active');
+        dots[currentSlideIndex].classList.remove('active');
+        
+        currentSlideIndex = index;
+        
+        slides[currentSlideIndex].classList.add('active');
+        dots[currentSlideIndex].classList.add('active');
+        currentSlideSpan.textContent = currentSlideIndex + 1;
+        
+        resetAutoPlay();
+      }
+
+      // Function to go to next slide
+      function nextSlide() {
+        let nextIndex = currentSlideIndex + 1;
+        if (nextIndex >= slides.length) nextIndex = 0;
+        goToSlide(nextIndex);
+      }
+
+      // Function to go to previous slide
+      function prevSlide() {
+        let prevIndex = currentSlideIndex - 1;
+        if (prevIndex < 0) prevIndex = slides.length - 1;
+        goToSlide(prevIndex);
+      }
+
+      // Auto-play functionality
+      function startAutoPlay() {
+        if (isAutoPlaying) {
+          autoPlayInterval = setInterval(nextSlide, slideInterval);
+          autoPlayIcon.className = 'fas fa-pause';
+          autoPlayText.textContent = 'Pause Slideshow';
+        }
+      }
+
+      function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayIcon.className = 'fas fa-play';
+        autoPlayText.textContent = 'Play Slideshow';
+      }
+
+      function resetAutoPlay() {
+        if (isAutoPlaying) {
+          clearInterval(autoPlayInterval);
+          startAutoPlay();
+        }
+      }
+
+      // Toggle auto-play
+      function toggleAutoPlay() {
+        isAutoPlaying = !isAutoPlaying;
+        if (isAutoPlaying) {
+          startAutoPlay();
+        } else {
+          stopAutoPlay();
+        }
+      }
+
+      // Event listeners
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoPlay();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoPlay();
+      });
+
+      autoPlayToggle.addEventListener('click', toggleAutoPlay);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoPlay();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoPlay();
+        } else if (e.key === ' ') {
+          e.preventDefault();
+          toggleAutoPlay();
+        }
+      });
+
+      // Start auto-play on page load
+      startAutoPlay();
+
+      // Touch/swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      document.querySelector('.slideshow-container').addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      document.querySelector('.slideshow-container').addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            // Swipe left - next slide
+            nextSlide();
+          } else {
+            // Swipe right - previous slide
+            prevSlide();
+          }
+          resetAutoPlay();
+        }
+      }
+    });
+
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
