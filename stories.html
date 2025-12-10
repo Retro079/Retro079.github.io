@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Share Your Story | Morehouse College Get on the Bus</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="styles (1).css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,50 +48,6 @@
       text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
       opacity: 0.9;
       line-height: 1.6;
-    }
-
-    /* Inspiration Quote Section */
-    .inspiration-quote {
-      background: var(--maroon-light);
-      padding: 60px 40px;
-      border-radius: 15px;
-      margin: 60px auto;
-      border-left: 5px solid var(--maroon);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      max-width: 900px;
-    }
-
-    .inspiration-quote::before {
-      content: '"';
-      position: absolute;
-      top: -20px;
-      left: 20px;
-      font-size: 120px;
-      color: rgba(139, 30, 63, 0.1);
-      font-family: Georgia, serif;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .quote-text {
-      font-size: 1.6rem;
-      font-weight: 700 !important;
-      color: var(--maroon-dark);
-      margin-bottom: 20px;
-      line-height: 1.5;
-      font-style: italic;
-      position: relative;
-      z-index: 1;
-    }
-
-    .quote-author {
-      font-size: 1.1rem;
-      font-weight: 800 !important;
-      color: var(--gray-medium);
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     /* Featured Stories Grid */
@@ -256,7 +211,7 @@
 
     .form-iframe {
       width: 100%;
-      height: 1500px;
+      height: 1357px;
       border: none;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -326,10 +281,6 @@
       .form-header h1 {
         font-size: 2.4rem;
       }
-      
-      .quote-text {
-        font-size: 1.4rem;
-      }
     }
 
     @media screen and (max-width: 768px) {
@@ -345,15 +296,6 @@
       .stories-hero p {
         font-size: 1.1rem;
         padding: 0 20px;
-      }
-      
-      .inspiration-quote {
-        margin: 40px 20px;
-        padding: 40px 30px;
-      }
-      
-      .quote-text {
-        font-size: 1.3rem;
       }
       
       .stories-grid {
@@ -376,10 +318,6 @@
       
       .form-content {
         padding: 25px;
-      }
-      
-      .form-iframe {
-        height: 1600px;
       }
       
       .stories-cta h2 {
@@ -405,10 +343,6 @@
         font-size: 1rem;
       }
       
-      .quote-text {
-        font-size: 1.2rem;
-      }
-      
       .story-content {
         padding: 25px 20px;
       }
@@ -431,7 +365,6 @@
     }
 
     .stories-hero,
-    .inspiration-quote,
     .story-card,
     .google-form-container,
     .stories-cta {
@@ -444,24 +377,21 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar (Matches index.html) -->
   <nav class="navbar">
     <div class="nav-container">
+      <!-- Left: Morehouse College Logo with Get on the Bus -->
       <div class="nav-brand">
-        <a href="index.html" class="logo-link">
-          <div class="logo-container">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
-                 alt="Morehouse College Logo" class="main-logo">
-            <div class="logo-text">
-              <div class="logo-main">MOREHOUSE COLLEGE</div>
-              <div class="logo-sub">Get on the Bus</div>
-            </div>
-          </div>
-        </a>
+        <div class="college-logo">
+          <div class="logo-main">MOREHOUSE COLLEGE</div>
+          <div class="logo-sub">Get on the Bus</div>
+        </div>
       </div>
 
+      <!-- Top Bar Navigation Links -->
       <div class="nav-center">
         <ul class="nav-menu">
+          <!-- Top Bar Links -->
           <li class="nav-item">
             <a href="index.html" class="nav-link">About</a>
           </li>
@@ -480,6 +410,12 @@
         </ul>
       </div>
 
+      <!-- Right: Action Buttons -->
+      <div class="nav-actions">
+        <a href="#" class="nav-action-btn give-btn">GIVE</a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
       <button class="mobile-toggle">
         <i class="fas fa-bars"></i>
       </button>
@@ -493,16 +429,6 @@
         <h1>Share Your Journey</h1>
         <p>Your experience inspires the next generation of Morehouse Men. Share your story of transformation, leadership, and brotherhood.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Inspiration Quote -->
-  <section class="container">
-    <div class="inspiration-quote">
-      <div class="quote-text">
-        "The function of education is to teach one to think intensively and to think critically. Intelligence plus character — that is the goal of true education."
-      </div>
-      <div class="quote-author">— Dr. Martin Luther King Jr., Morehouse College Class of 1948</div>
     </div>
   </section>
 
@@ -576,17 +502,12 @@
         </div>
         
         <div class="form-content">
-          <!-- PASTE YOUR GOOGLE FORM EMBED CODE HERE -->
-         <!-- PASTE YOUR GOOGLE FORM EMBED CODE HERE -->
-<iframe class="form-iframe" 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSchFAXRIqsAmlM6KyZHTmlPG1gMg19Ux3feyNDtuLIQF79GYg/viewform?embedded=true"
-        width="100%" 
-        height="1357" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0">
-  Loading…
-</iframe>
+          <!-- Google Form Embed -->
+          <iframe class="form-iframe" 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSchFAXRIqsAmlM6KyZHTmlPG1gMg19Ux3feyNDtuLIQF79GYg/viewform?embedded=true"
+                  frameborder="0" 
+                  marginheight="0" 
+                  marginwidth="0">
             Loading…
           </iframe>
           
@@ -611,62 +532,16 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (Matches index.html) -->
   <footer class="main-footer">
     <div class="container">
-      <div class="footer-columns">
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">About the Initiative</a></li>
-            <li><a href="Why Morehouse.html">Why Morehouse</a></li>
-            <li><a href="tools.html">Empowerment Tools</a></li>
-            <li><a href="stories.html">Share Your Story</a></li>
-            <li><a href="places.html">Places We've Been</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="#">Admissions Information</a></li>
-            <li><a href="#">Financial Aid</a></li>
-            <li><a href="#">Campus Tours</a></li>
-            <li><a href="#">Academic Programs</a></li>
-            <li><a href="#">Student Life</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Connect With Us</h3>
-          <ul>
-            <li><a href="#">Contact Admissions</a></li>
-            <li><a href="#">Schedule a Visit</a></li>
-            <li><a href="#">Request Information</a></li>
-            <li><span class="subheading">Follow Morehouse</span></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <div class="footer-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
-                 alt="Morehouse College Logo" class="footer-logo-img">
-            <div>
-              <h3>MOREHOUSE COLLEGE</h3>
-              <p>Get on the Bus</p>
-            </div>
-          </div>
-          <div class="footer-info">
-            <p>830 Westview Dr SW, Atlanta, GA 30314</p>
-            <p>(470) 639-0000</p>
-            <p>admissions@morehouse.edu</p>
-          </div>
-        </div>
-      </div>
-      
       <div class="footer-bottom">
+        <div class="footer-logo">
+          <h3>MOREHOUSE COLLEGE</h3>
+          <p>Get on the Bus</p>
+        </div>
         <div class="footer-info">
-          <p>"The Morehouse Mystique: Developing Men with a Sense of Purpose"</p>
+          <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -676,7 +551,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="copyright">
         <p>&copy; 2025 Morehouse College. All rights reserved.</p>
       </div>
@@ -686,21 +561,40 @@
   <script>
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const navCenter = document.querySelector('.nav-center');
+    const navMenu = document.querySelector('.nav-menu');
 
     mobileToggle.addEventListener('click', () => {
-      navCenter.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
+      navMenu.classList.toggle('active');
+      mobileToggle.querySelector('i').classList.toggle('fa-bars');
+      mobileToggle.querySelector('i').classList.toggle('fa-times');
     });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navCenter.classList.remove('active');
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && !e.target.closest('.navbar')) {
+        navMenu.classList.remove('active');
         mobileToggle.querySelector('i').classList.remove('fa-times');
         mobileToggle.querySelector('i').classList.add('fa-bars');
+      }
+    });
+
+    // Active link highlighting
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute('href');
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+      
+      // Add click event for mobile to close menu after clicking
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('active');
+          mobileToggle.querySelector('i').classList.remove('fa-times');
+          mobileToggle.querySelector('i').classList.add('fa-bars');
+        }
       });
     });
 
