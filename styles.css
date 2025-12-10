@@ -1,1246 +1,708 @@
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --maroon: #8B1E3F;
-  --maroon-dark: #6a152f;
-  --maroon-light: rgba(139, 30, 63, 0.1);
-  --gold: #D4AF37;
-  --gold-light: rgba(212, 175, 55, 0.1);
-  --gray-light: #f5f5f5;
-  --gray-medium: #666;
-  --gray-dark: #333;
-  --white: #ffffff;
-  --black: #000000;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.2);
-  --transition: all 0.3s ease;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--gray-dark);
-  background-color: var(--white);
-  overflow-x: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* THICKER Typography */
-h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800 !important;
-  line-height: 1.2;
-}
-
-/* Top Bar Navigation Menu - IMPROVED with LOGO */
-.navbar {
-  background-color: var(--white);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 0;
-  border-bottom: 3px solid var(--maroon);
-  overflow: hidden;
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 85px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* LOGO CONTAINER - UPDATED FOR IMAGE LOGO */
-.nav-brand {
-  display: flex;
-  align-items: center;
-  min-width: 300px;
-  flex-shrink: 0;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  height: 100%;
-}
-
-.main-logo {
-  height: 55px;
-  width: auto;
-  border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  border: 2px solid var(--maroon);
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-main {
-  color: var(--maroon);
-  font-size: 1.6rem;
-  font-weight: 900 !important;
-  letter-spacing: 1.2px;
-  line-height: 1.1;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-}
-
-.logo-sub {
-  color: var(--maroon);
-  font-size: 1rem;
-  font-weight: 800 !important;
-  margin-top: 3px;
-  letter-spacing: 0.8px;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Hero Logo Overlay */
-.hero-logo-overlay {
-  position: absolute;
-  top: 100px;
-  left: 40px;
-  z-index: 10;
-}
-
-.hero-logo {
-  height: 80px;
-  width: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  background-color: rgba(255,255,255,0.95);
-  padding: 8px;
-  border: 3px solid var(--gold);
-}
-
-/* Improved Navigation Center */
-.nav-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin: 0 40px;
-  overflow: hidden;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-  background-color: var(--white);
-  border-radius: 8px;
-  padding: 8px 15px;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.nav-item {
-  position: relative;
-  white-space: nowrap;
-}
-
-.nav-item:last-child {
-  margin-right: 0;
-}
-
-.nav-link {
-  color: var(--gray-dark);
-  text-decoration: none;
-  font-weight: 700 !important;
-  font-size: 1rem;
-  padding: 12px 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: var(--transition);
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-
-.nav-link:hover {
-  color: var(--maroon);
-  background-color: var(--maroon-light);
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-  transition: var(--transition);
-}
-
-.nav-link:hover::after {
-  width: 80%;
-}
-
-/* Active link styling */
-.nav-link.active {
-  color: var(--maroon);
-  font-weight: 800 !important;
-  background-color: var(--maroon-light);
-}
-
-.nav-link.active::after {
-  width: 100%;
-}
-
-/* REMOVED Action Buttons Section */
-.nav-actions {
-  display: none; /* Hide VISIT and GIVE buttons */
-}
-
-/* THICKER HERO TEXT */
-.hero-overlay h1 {
-  font-size: 4rem;
-  font-weight: 900 !important;
-  margin-bottom: 25px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  letter-spacing: 2px;
-  line-height: 1.1;
-}
-
-.hero-overlay p {
-  font-size: 1.5rem;
-  font-weight: 700 !important;
-  margin-bottom: 40px;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-  opacity: 0.9;
-}
-
-.cta-button {
-  padding: 18px 45px;
-  background: var(--gold);
-  color: var(--black);
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 800 !important;
-  transition: var(--transition);
-  font-size: 1.2rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  border: 2px solid var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-}
-
-/* THICKER MOREHOUSE HERO */
-.morehouse-hero-content h2 {
-  font-size: 1.8rem;
-  font-weight: 900 !important;
-  margin-bottom: 15px;
-  color: var(--gold);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.morehouse-hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 900 !important;
-  margin-bottom: 50px;
-  line-height: 1.1;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* THICKER STATS */
-.stat-item h3 {
-  font-size: 3.5rem;
-  font-weight: 900 !important;
-  color: var(--maroon);
-  margin-bottom: 15px;
-}
-
-.stat-item p {
-  color: var(--gray-medium);
-  font-size: 1.1rem;
-  font-weight: 700 !important;
-  line-height: 1.4;
-}
-
-/* THICKER SECTION TITLES */
-.section-title {
-  text-align: center;
-  color: var(--maroon);
-  margin-bottom: 60px;
-  font-size: 2.5rem;
-  font-weight: 900 !important;
-  position: relative;
-}
-
-/* GOOGLE TOOLS - SINGLE ROW */
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Force 4 columns in one row */
-  gap: 35px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.link-card {
-  background: var(--white);
-  padding: 45px 30px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  text-align: center;
-  border: 1px solid var(--gray-light);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-}
-
-.link-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-}
-
-.link-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--maroon-light);
-}
-
-.link-icon {
-  width: 80px;
-  height: 80px;
-  background: var(--maroon-light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 30px;
-  transition: var(--transition);
-}
-
-.link-card:hover .link-icon {
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  transform: rotate(10deg);
-}
-
-.link-icon i {
-  font-size: 2.2rem;
-  color: var(--maroon);
-  transition: var(--transition);
-}
-
-.link-card:hover .link-icon i {
-  color: var(--white);
-}
-
-.link-card h3 {
-  color: var(--maroon);
-  margin-bottom: 20px;
-  font-size: 1.6rem;
-  font-weight: 800 !important;
-  flex-grow: 0;
-}
-
-.link-description {
-  color: var(--gray-medium);
-  font-size: 1.05rem;
-  font-weight: 600 !important;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  min-height: 60px;
-  flex-grow: 0;
-}
-
-.tool-link {
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  color: var(--white);
-  text-decoration: none;
-  padding: 14px 30px;
-  border-radius: 8px;
-  font-weight: 800 !important;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
-  border: none;
-  box-shadow: 0 4px 15px rgba(139, 30, 63, 0.2);
-  margin-top: auto; /* Push to bottom of card */
-}
-
-.tool-link:hover {
-  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
-}
-
-/* THICKER INTRODUCTION TEXT */
-.intro-content h2 {
-  font-size: 2.8rem;
-  font-weight: 900 !important;
-  color: var(--maroon);
-  margin-bottom: 30px;
-  line-height: 1.2;
-}
-
-.intro-content p {
-  font-size: 1.2rem;
-  font-weight: 600 !important;
-  color: var(--gray-dark);
-  margin-bottom: 25px;
-  line-height: 1.8;
-}
-
-/* THICKER CAMPUS TEXT */
-.campus-content h2 {
-  font-size: 3rem;
-  font-weight: 900 !important;
-  margin-bottom: 25px;
-  line-height: 1.1;
-}
-
-.campus-content p {
-  font-size: 1.3rem;
-  font-weight: 600 !important;
-  margin-bottom: 50px;
-  opacity: 0.95;
-  line-height: 1.7;
-}
-
-.btn-campus-primary, .btn-campus-secondary {
-  padding: 18px 40px;
-  text-decoration: none;
-  font-weight: 800 !important;
-  border-radius: 8px;
-  transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 1rem;
-  border: 2px solid transparent;
-}
-
-/* THICKER FOOTER TEXT */
-.footer-column h3 {
-  color: var(--white);
-  font-size: 1.4rem;
-  font-weight: 900 !important;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid var(--gold);
-}
-
-.footer-column a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: var(--transition);
-  font-size: 0.95rem;
-  font-weight: 600 !important;
-  display: block;
-  padding: 6px 0;
-}
-
-.footer-column .subheading {
-  color: var(--gold);
-  font-weight: 800 !important;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 1.05rem;
-  display: block;
-}
-
-.footer-logo h3 {
-  color: var(--white);
-  font-size: 1.8rem;
-  font-weight: 900 !important;
-  margin-bottom: 5px;
-}
-
-.footer-logo p {
-  color: var(--gold);
-  font-size: 0.95rem;
-  font-weight: 800 !important;
-}
-
-.footer-info p {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 15px;
-  font-size: 1rem;
-  font-weight: 600 !important;
-}
-
-/* FOOTER LOGO STYLING */
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo-img {
-  height: 65px;
-  width: auto;
-  border-radius: 6px;
-  border: 2px solid var(--gold);
-}
-
-/* THICKER COPYRIGHT */
-.copyright {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.95rem;
-  font-weight: 600 !important;
-  padding-top: 20px;
-}
-
-/* Mobile Toggle */
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--maroon);
-  cursor: pointer;
-  padding: 10px;
-  transition: var(--transition);
-}
-
-/* Video Hero Section */
-.hero {
-  position: relative;
-  height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-  margin-top: 85px;
-}
-
-#bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(139, 30, 63, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--white);
-  padding: 0 20px;
-  width: 100%;
-  max-width: 800px;
-  z-index: 1;
-}
-
-/* Morehouse Hero Section */
-.morehouse-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
-              url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 100px 0;
-  text-align: center;
-  color: var(--white);
-}
-
-/* Updated Stats Section */
-.stats-section {
-  background-color: var(--gray-light);
-  padding: 80px 0;
-}
-
-.stats-section .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  text-align: center;
-}
-
-.stat-item {
-  padding: 30px;
-  background: var(--white);
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-}
-
-/* Updated Featured Links Grid with Google Tools */
-.featured-links {
-  padding: 100px 0;
-  background-color: var(--white);
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-  border-radius: 2px;
-}
-
-.link-card:hover .link-icon i {
-  color: var(--white);
-}
-
-/* Video Showcase Section */
-.video-showcase {
-  padding: 100px 0;
-  background: linear-gradient(135deg, var(--gray-light) 0%, #f0f2f5 100%);
-}
-
-.video-showcase .section-title {
-  text-align: center;
-  color: var(--maroon);
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  font-weight: 900 !important;
-  position: relative;
-}
-
-.video-showcase .section-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--gray-medium);
-  margin-bottom: 60px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 600 !important;
-  line-height: 1.6;
-}
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.video-container {
-  background: var(--white);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  border: 1px solid var(--gray-light);
-}
-
-.video-container:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
-}
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  height: 0;
-  overflow: hidden;
-  background: var(--black);
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-info {
-  padding: 30px;
-  background: var(--white);
-}
-
-.video-info h3 {
-  color: var(--maroon);
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  font-weight: 800 !important;
-  line-height: 1.3;
-}
-
-.video-info p {
-  color: var(--gray-medium);
-  line-height: 1.6;
-  font-weight: 600 !important;
-  font-size: 1rem;
-}
-
-/* Introduction Section */
-.intro-section {
-  padding: 100px 0;
-  background-color: var(--white);
-  border-top: 5px solid var(--maroon-light);
-  border-bottom: 5px solid var(--maroon-light);
-}
-
-.intro-content {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  background: var(--white);
-  padding: 60px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-/* Campus Exploration */
-.campus-exploration {
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  color: var(--white);
-  padding: 100px 0;
-  text-align: center;
-}
-
-.campus-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.btn-campus-primary {
-  background-color: var(--gold);
-  color: var(--black);
-}
-
-.btn-campus-primary:hover {
-  background-color: transparent;
-  color: var(--gold);
-  border-color: var(--gold);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-}
-
-.btn-campus-secondary {
-  background-color: transparent;
-  color: var(--white);
-  border-color: var(--white);
-}
-
-.btn-campus-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
-}
-
-/* Footer with Columns */
-.main-footer {
-  background-color: var(--black);
-  color: var(--white);
-  padding: 80px 0 30px;
-}
-
-.footer-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-column li {
-  margin-bottom: 12px;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer-info {
-  text-align: right;
-}
-
-.social-links {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-end;
-}
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1rem;
-  font-weight: 700 !important;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  background: var(--maroon);
-  transform: translateY(-3px);
-}
-
-/* Chat Assistant */
-.chat-assistant {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
-}
-
-.chat-icon {
-  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-hover);
-  transition: var(--transition);
-}
-
-.chat-icon:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 10px 30px rgba(139, 30, 63, 0.4);
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1200px) {
-  .nav-container {
-    padding: 0 30px;
-  }
-  
-  .nav-menu {
-    gap: 20px;
-  }
-  
-  .nav-link {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-  }
-  
-  .main-logo {
-    height: 50px;
-  }
-  
-  .logo-main {
-    font-size: 1.4rem;
-  }
-  
-  /* Adjust Google Tools grid for medium screens */
-  .links-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  
-  /* Adjust Video Showcase for medium screens */
-  .videos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .hero-overlay h1 {
-    font-size: 3.2rem;
-  }
-  
-  .morehouse-hero-content h1 {
-    font-size: 2.8rem;
-  }
-  
-  .intro-content h2 {
-    font-size: 2.4rem;
-  }
-  
-  .nav-brand {
-    min-width: 250px;
-  }
-  
-  .nav-menu {
-    gap: 15px;
-  }
-  
-  /* Adjust Google Tools grid */
-  .links-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Adjust Video Showcase */
-  .video-showcase .section-title {
-    font-size: 2.2rem;
-  }
-  
-  .videos-grid {
-    grid-template-columns: 1fr;
-    max-width: 700px;
-    margin: 0 auto 60px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .nav-container {
-    padding: 0 20px;
-    height: 70px;
-  }
-  
-  .mobile-toggle {
-    display: block;
-  }
-  
-  .nav-center {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--white);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: var(--transition);
-    margin: 0;
-    overflow: visible;
-  }
-  
-  .nav-center.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  .nav-menu {
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
-    padding: 0;
-    overflow: visible;
-  }
-  
-  .nav-item {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .nav-link {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--gray-light);
-    justify-content: center;
-    border-radius: 0;
-    font-size: 1rem;
-  }
-  
-  .nav-link::after {
-    display: none;
-  }
-  
-  /* MOBILE LOGO ADJUSTMENTS */
-  .main-logo {
-    height: 45px;
-  }
-  
-  .logo-main {
-    font-size: 1.2rem;
-  }
-  
-  .logo-sub {
-    font-size: 0.9rem;
-  }
-  
-  .hero-logo-overlay {
-    top: 80px;
-    left: 20px;
-  }
-  
-  .hero-logo {
-    height: 60px;
-  }
-  
-  .hero {
-    margin-top: 70px;
-    height: 70vh;
-    min-height: 500px;
-  }
-  
-  .hero-overlay h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-overlay p {
-    font-size: 1.1rem;
-  }
-  
-  .morehouse-hero-content h1 {
-    font-size: 2.2rem;
-  }
-  
-  .morehouse-hero-content h2 {
-    font-size: 1.3rem;
-  }
-  
-  .hero-buttons,
-  .campus-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stats-section .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .intro-content {
-    padding: 40px 25px;
-  }
-  
-  /* MOBILE FOOTER LOGO */
-  .footer-logo {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
-  
-  .footer-logo-img {
-    height: 50px;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-info {
-    text-align: center;
-  }
-  
-  .social-links {
-    justify-content: center;
-  }
-  
-  /* Google Tools - single column on mobile */
-  .links-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .link-card {
-    padding: 35px 25px;
-  }
-  
-  /* Video Showcase Mobile Adjustments */
-  .video-showcase {
-    padding: 80px 0;
-  }
-  
-  .video-showcase .section-title {
-    font-size: 2rem;
-    margin-bottom: 15px;
-  }
-  
-  .video-showcase .section-subtitle {
-    font-size: 1rem;
-    margin-bottom: 40px;
-    padding: 0 20px;
-  }
-  
-  .videos-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .video-container {
-    margin: 0 10px;
-  }
-  
-  .video-info {
-    padding: 25px 20px;
-  }
-  
-  .video-info h3 {
-    font-size: 1.3rem;
-  }
-  
-  .video-info p {
-    font-size: 0.95rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-overlay h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-logo {
-    height: 50px;
-  }
-  
-  .stats-section .container {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-columns {
-    grid-template-columns: 1fr;
-  }
-  
-  .chat-assistant {
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .chat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-  
-  /* Video Showcase Extra Small Screens */
-  .video-showcase .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .videos-grid {
-    gap: 25px;
-  }
-  
-  .video-info {
-    padding: 20px 15px;
-  }
-  
-  .video-info h3 {
-    font-size: 1.2rem;
-  }
-  
-  .video-info p {
-    font-size: 0.9rem;
-  }
-  
-  .intro-content {
-    padding: 30px 20px;
-  }
-  
-  .intro-content h2 {
-    font-size: 1.8rem;
-  }
-  
-  .intro-content p {
-    font-size: 1rem;
-  }
-}
-
-/* Animation for page load */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.morehouse-hero,
-.stats-section,
-.featured-links,
-.video-showcase,
-.intro-section,
-.campus-exploration {
-  animation: fadeIn 0.8s ease-out;
-}
-
-/* Additional animation for video cards */
-.video-container {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.video-container:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.video-container:nth-child(2) {
-  animation-delay: 0.2s;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Story | Morehouse College Get on the Bus</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles (1).css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Additional styles specific to stories page */
+    
+    /* Stories Hero Section */
+    .stories-hero {
+      background: linear-gradient(rgba(139, 30, 63, 0.85), rgba(0, 0, 0, 0.9)),
+                  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 150px 0 80px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 85px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stories-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stories-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900 !important;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+
+    .stories-hero p {
+      font-size: 1.3rem;
+      font-weight: 700 !important;
+      margin-bottom: 0;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Inspiration Quote Section */
+    .inspiration-quote {
+      background: var(--maroon-light);
+      padding: 60px 40px;
+      border-radius: 15px;
+      margin: 60px auto;
+      border-left: 5px solid var(--maroon);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+    }
+
+    .inspiration-quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 120px;
+      color: rgba(139, 30, 63, 0.1);
+      font-family: Georgia, serif;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .quote-text {
+      font-size: 1.6rem;
+      font-weight: 700 !important;
+      color: var(--maroon-dark);
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote-author {
+      font-size: 1.1rem;
+      font-weight: 800 !important;
+      color: var(--gray-medium);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Featured Stories Grid */
+    .featured-stories {
+      padding: 80px 0;
+      background: var(--gray-light);
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .story-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .story-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--maroon-light);
+    }
+
+    .story-image {
+      height: 250px;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      opacity: 0.8;
+    }
+
+    .story-content {
+      padding: 30px;
+    }
+
+    .story-content h3 {
+      color: var(--maroon);
+      font-size: 1.5rem;
+      font-weight: 800 !important;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .story-content p {
+      color: var(--gray-medium);
+      line-height: 1.6;
+      font-weight: 600 !important;
+      margin-bottom: 20px;
+    }
+
+    .story-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--maroon-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--maroon);
+      font-weight: 800 !important;
+      font-size: 1.2rem;
+    }
+
+    .author-info h4 {
+      color: var(--maroon);
+      font-size: 1.1rem;
+      font-weight: 800 !important;
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      color: var(--gray-medium);
+      font-size: 0.9rem;
+      font-weight: 600 !important;
+      margin-bottom: 0;
+    }
+
+    /* Google Form Container - Enhanced */
+    .stories-container {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .google-form-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-hover);
+      overflow: hidden;
+      border: 2px solid var(--maroon-light);
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      padding: 50px 40px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .form-header h1 {
+      font-size: 2.8rem;
+      font-weight: 900 !important;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .form-header p {
+      font-size: 1.2rem;
+      font-weight: 700 !important;
+      opacity: 0.9;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .form-header strong {
+      color: var(--gold);
+      display: block;
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
+
+    .form-content {
+      padding: 40px;
+    }
+
+    .form-iframe {
+      width: 100%;
+      height: 1500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800 !important;
+      border-radius: 8px;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(139, 30, 63, 0.2);
+    }
+
+    .back-button:hover {
+      background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
+      color: var(--white);
+    }
+
+    /* Call to Action */
+    .stories-cta {
+      background: var(--gold-light);
+      padding: 60px 0;
+      text-align: center;
+      border-top: 5px solid var(--gold);
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .stories-cta h2 {
+      color: var(--maroon);
+      font-size: 2.5rem;
+      font-weight: 900 !important;
+      margin-bottom: 20px;
+    }
+
+    .stories-cta p {
+      color: var(--gray-dark);
+      font-size: 1.2rem;
+      font-weight: 700 !important;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+      .stories-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .stories-hero p {
+        font-size: 1.2rem;
+      }
+      
+      .form-header h1 {
+        font-size: 2.4rem;
+      }
+      
+      .quote-text {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .stories-hero {
+        margin-top: 70px;
+        padding: 100px 0 60px;
+      }
+      
+      .stories-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .stories-hero p {
+        font-size: 1.1rem;
+        padding: 0 20px;
+      }
+      
+      .inspiration-quote {
+        margin: 40px 20px;
+        padding: 40px 30px;
+      }
+      
+      .quote-text {
+        font-size: 1.3rem;
+      }
+      
+      .stories-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto 40px;
+      }
+      
+      .form-header {
+        padding: 40px 25px;
+      }
+      
+      .form-header h1 {
+        font-size: 2rem;
+      }
+      
+      .form-header p {
+        font-size: 1.1rem;
+      }
+      
+      .form-content {
+        padding: 25px;
+      }
+      
+      .form-iframe {
+        height: 1600px;
+      }
+      
+      .stories-cta h2 {
+        font-size: 2rem;
+      }
+      
+      .stories-cta p {
+        font-size: 1.1rem;
+        padding: 0 20px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .stories-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .form-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .form-header p {
+        font-size: 1rem;
+      }
+      
+      .quote-text {
+        font-size: 1.2rem;
+      }
+      
+      .story-content {
+        padding: 25px 20px;
+      }
+      
+      .story-content h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stories-hero,
+    .inspiration-quote,
+    .story-card,
+    .google-form-container,
+    .stories-cta {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .story-card:nth-child(1) { animation-delay: 0.1s; }
+    .story-card:nth-child(2) { animation-delay: 0.2s; }
+    .story-card:nth-child(3) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="main-logo">
+            <div class="logo-text">
+              <div class="logo-main">MOREHOUSE COLLEGE</div>
+              <div class="logo-sub">Get on the Bus</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="Why Morehouse.html" class="nav-link">Why Morehouse</a>
+          </li>
+          <li class="nav-item">
+            <a href="tools.html" class="nav-link">Empowerment Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="stories.html" class="nav-link active">Share Your Story</a>
+          </li>
+          <li class="nav-item">
+            <a href="places.html" class="nav-link">Places We've Been</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="stories-hero">
+    <div class="container">
+      <div class="stories-hero-content">
+        <h1>Share Your Journey</h1>
+        <p>Your experience inspires the next generation of Morehouse Men. Share your story of transformation, leadership, and brotherhood.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inspiration Quote -->
+  <section class="container">
+    <div class="inspiration-quote">
+      <div class="quote-text">
+        "The function of education is to teach one to think intensively and to think critically. Intelligence plus character — that is the goal of true education."
+      </div>
+      <div class="quote-author">— Dr. Martin Luther King Jr., Morehouse College Class of 1948</div>
+    </div>
+  </section>
+
+  <!-- Featured Stories Grid -->
+  <section class="featured-stories">
+    <div class="container">
+      <h2 class="section-title">Inspiring Stories from Our Community</h2>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-graduation-cap story-icon"></i>
+          </div>
+          <div class="story-content">
+            <h3>From Atlanta Streets to Wall Street</h3>
+            <p>Growing up in the West End, I never imagined I'd be where I am today. Morehouse taught me that my background was my strength, not my limitation. The brotherhood I found here gave me the confidence to pursue my dreams in finance.</p>
+            <div class="story-author">
+              <div class="author-avatar">MJ</div>
+              <div class="author-info">
+                <h4>Marcus Johnson</h4>
+                <p>Class of 2015 | Investment Banker</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-heartbeat story-icon"></i>
+          </div>
+          <div class="story-content">
+            <h3>Healing Communities Through Medicine</h3>
+            <p>As a first-generation college student, Morehouse gave me more than an education—it gave me purpose. The mentorship I received inspired me to become a physician serving underserved communities, just like my professors served me.</p>
+            <div class="story-author">
+              <div class="author-avatar">DR</div>
+              <div class="author-info">
+                <h4>David Robinson</h4>
+                <p>Class of 2012 | Medical Doctor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-laptop-code story-icon"></i>
+          </div>
+          <div class="story-content">
+            <h3>Building Tech for Social Change</h3>
+            <p>The computer science program at Morehouse taught me technical skills, but the leadership development taught me how to use those skills for good. Today, my startup creates technology solutions for educational equity across the country.</p>
+            <div class="story-author">
+              <div class="author-avatar">KW</div>
+              <div class="author-info">
+                <h4>Kevin Williams</h4>
+                <p>Class of 2018 | Tech Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Form Container -->
+  <section class="stories-container">
+    <div class="container">
+      <div class="google-form-container">
+        <div class="form-header">
+          <h1>Share Your Story</h1>
+          <p>Every Morehouse man has a unique journey. Share your experience, challenges, triumphs, and wisdom with the next generation of leaders. Your story could inspire someone to take their first step toward greatness.</p>
+          <strong>Your submission will be reviewed by the Morehouse College team. You will receive a confirmation email.</strong>
+        </div>
+        
+        <div class="form-content">
+          <!-- PASTE YOUR GOOGLE FORM EMBED CODE HERE -->
+          <iframe class="form-iframe" 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSchFAXRIqsAmlM6KyZHTmlPG1gMg19Ux3feyNDtuLIQF79GYg/viewform?embedded=true">
+            Loading…
+          </iframe>
+          
+          <div style="text-align: center;">
+            <a href="index.html" class="back-button">
+              <i class="fas fa-arrow-left"></i> Back to Homepage
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="stories-cta">
+    <div class="container">
+      <h2>Your Voice Matters</h2>
+      <p>Every story shared strengthens our community and guides the path for future Morehouse men. Whether you're a current student, alumnus, faculty member, or supporter, your perspective is valuable.</p>
+      <a href="#top" class="cta-button">
+        <i class="fas fa-share-alt"></i> Share Your Story Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">About the Initiative</a></li>
+            <li><a href="Why Morehouse.html">Why Morehouse</a></li>
+            <li><a href="tools.html">Empowerment Tools</a></li>
+            <li><a href="stories.html">Share Your Story</a></li>
+            <li><a href="places.html">Places We've Been</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Admissions Information</a></li>
+            <li><a href="#">Financial Aid</a></li>
+            <li><a href="#">Campus Tours</a></li>
+            <li><a href="#">Academic Programs</a></li>
+            <li><a href="#">Student Life</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><a href="#">Contact Admissions</a></li>
+            <li><a href="#">Schedule a Visit</a></li>
+            <li><a href="#">Request Information</a></li>
+            <li><span class="subheading">Follow Morehouse</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="footer-logo-img">
+            <div>
+              <h3>MOREHOUSE COLLEGE</h3>
+              <p>Get on the Bus</p>
+            </div>
+          </div>
+          <div class="footer-info">
+            <p>830 Westview Dr SW, Atlanta, GA 30314</p>
+            <p>(470) 639-0000</p>
+            <p>admissions@morehouse.edu</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-info">
+          <p>"The Morehouse Mystique: Developing Men with a Sense of Purpose"</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Morehouse College. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navCenter = document.querySelector('.nav-center');
+
+    mobileToggle.addEventListener('click', () => {
+      navCenter.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navCenter.classList.remove('active');
+        mobileToggle.querySelector('i').classList.remove('fa-times');
+        mobileToggle.querySelector('i').classList.add('fa-bars');
+      });
+    });
+
+    // Smooth scroll for CTA button
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('.google-form-container').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
