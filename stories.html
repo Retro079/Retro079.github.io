@@ -5,287 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Share Your Story | Morehouse College Get on the Bus</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles (1).css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Additional styles specific to stories page */
+    
+    /* Stories Hero Section */
     .stories-hero {
-      background: linear-gradient(rgba(139, 30, 63, 0.85), rgba(0, 0, 0, 0.85)),
-                  url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background: linear-gradient(rgba(139, 30, 63, 0.85), rgba(0, 0, 0, 0.9)),
+                  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding: 120px 0 80px;
+      padding: 150px 0 80px;
       text-align: center;
       color: var(--white);
       margin-top: 85px;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .stories-hero-content h1 {
+
+    .stories-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stories-hero h1 {
       font-size: 3.5rem;
       font-weight: 900 !important;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      letter-spacing: 2px;
       line-height: 1.1;
     }
-    
-    .stories-hero-content p {
+
+    .stories-hero p {
       font-size: 1.3rem;
-      font-weight: 600 !important;
-      max-width: 700px;
-      margin: 0 auto 40px;
+      font-weight: 700 !important;
+      margin-bottom: 0;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
       opacity: 0.9;
+      line-height: 1.6;
     }
-    
+
+    /* Inspiration Quote Section */
     .inspiration-quote {
-      background: linear-gradient(135deg, var(--gold-light) 0%, var(--maroon-light) 100%);
+      background: var(--maroon-light);
       padding: 60px 40px;
-      border-radius: 20px;
+      border-radius: 15px;
       margin: 60px auto;
+      border-left: 5px solid var(--maroon);
       text-align: center;
-      max-width: 800px;
       position: relative;
-      border-left: 5px solid var(--gold);
+      overflow: hidden;
+      max-width: 900px;
     }
-    
+
     .inspiration-quote::before {
       content: '"';
       position: absolute;
-      top: 20px;
-      left: 40px;
-      font-size: 6rem;
-      color: var(--maroon);
-      opacity: 0.2;
-      font-family: serif;
+      top: -20px;
+      left: 20px;
+      font-size: 120px;
+      color: rgba(139, 30, 63, 0.1);
+      font-family: Georgia, serif;
       font-weight: 900;
+      line-height: 1;
     }
-    
+
     .quote-text {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700 !important;
-      color: var(--maroon);
+      color: var(--maroon-dark);
       margin-bottom: 20px;
+      line-height: 1.5;
       font-style: italic;
-      line-height: 1.4;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .quote-author {
       font-size: 1.1rem;
+      font-weight: 800 !important;
       color: var(--gray-medium);
-      font-weight: 600 !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    
-    .stories-container {
+
+    /* Featured Stories Grid */
+    .featured-stories {
       padding: 80px 0;
       background: var(--gray-light);
     }
-    
-    .story-form-section, .stories-gallery-section {
-      background: var(--white);
-      padding: 60px;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      margin-bottom: 60px;
-    }
-    
-    .form-title {
-      color: var(--maroon);
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      text-align: center;
-      position: relative;
-      padding-bottom: 20px;
-    }
-    
-    .form-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-    }
-    
-    .story-form {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    
-    @media (max-width: 768px) {
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .form-group {
-      margin-bottom: 30px;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--maroon);
-      font-weight: 700 !important;
-      font-size: 1.1rem;
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 15px;
-      border: 2px solid var(--gray-light);
-      border-radius: 10px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-      background: var(--white);
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--maroon);
-      box-shadow: 0 0 0 3px var(--maroon-light);
-    }
-    
-    .form-group textarea {
-      min-height: 200px;
-      resize: vertical;
-    }
-    
-    .file-upload {
-      border: 2px dashed var(--gray-light);
-      border-radius: 10px;
-      padding: 40px;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .file-upload:hover {
-      border-color: var(--maroon);
-      background: var(--maroon-light);
-    }
-    
-    .file-upload i {
-      font-size: 3rem;
-      color: var(--maroon);
-      margin-bottom: 20px;
-    }
-    
-    .file-upload p {
-      color: var(--gray-medium);
-      margin-bottom: 10px;
-      font-weight: 600 !important;
-    }
-    
-    .file-upload span {
-      color: var(--maroon);
-      font-weight: 700 !important;
-    }
-    
-    .file-preview {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    
-    .file-item {
-      background: var(--gray-light);
-      padding: 10px 15px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 300px;
-    }
-    
-    .file-item i {
-      color: var(--maroon);
-    }
-    
-    .remove-file {
-      background: none;
-      border: none;
-      color: var(--gray-medium);
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0 5px;
-    }
-    
-    .submit-btn {
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      color: var(--white);
-      border: none;
-      padding: 18px 50px;
-      font-size: 1.1rem;
-      font-weight: 800 !important;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: var(--transition);
-      display: block;
-      margin: 40px auto 0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 6px 20px rgba(139, 30, 63, 0.3);
-    }
-    
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(139, 30, 63, 0.4);
-    }
-    
-    .submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .form-note {
-      text-align: center;
-      color: var(--gray-medium);
-      margin-top: 30px;
-      font-style: italic;
-      font-size: 0.95rem;
-    }
-    
-    .gallery-title {
-      color: var(--maroon);
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      text-align: center;
-      position: relative;
-      padding-bottom: 20px;
-    }
-    
-    .gallery-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-    }
-    
+
     .stories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
     }
-    
+
     .story-card {
       background: var(--white);
       border-radius: 15px;
@@ -294,286 +116,337 @@
       transition: var(--transition);
       border: 1px solid var(--gray-light);
     }
-    
+
     .story-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
+      border-color: var(--maroon-light);
     }
-    
-    .story-media {
-      height: 200px;
-      overflow: hidden;
+
+    .story-image {
+      height: 250px;
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 3rem;
       position: relative;
+      overflow: hidden;
     }
-    
-    .story-media img {
+
+    .story-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: var(--transition);
     }
-    
-    .story-card:hover .story-media img {
-      transform: scale(1.05);
-    }
-    
-    .story-type {
+
+    .story-icon {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--maroon);
-      color: var(--white);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700 !important;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      opacity: 0.8;
     }
-    
+
     .story-content {
-      padding: 25px;
+      padding: 30px;
     }
-    
+
+    .story-content h3 {
+      color: var(--maroon);
+      font-size: 1.5rem;
+      font-weight: 800 !important;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .story-content p {
+      color: var(--gray-medium);
+      line-height: 1.6;
+      font-weight: 600 !important;
+      margin-bottom: 20px;
+    }
+
     .story-author {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
+      gap: 15px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-light);
     }
-    
+
     .author-avatar {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--gold) 100%);
+      background: var(--maroon-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white);
-      font-weight: 700 !important;
+      color: var(--maroon);
+      font-weight: 800 !important;
       font-size: 1.2rem;
     }
-    
+
     .author-info h4 {
       color: var(--maroon);
       font-size: 1.1rem;
+      font-weight: 800 !important;
       margin-bottom: 5px;
     }
-    
+
     .author-info p {
       color: var(--gray-medium);
       font-size: 0.9rem;
       font-weight: 600 !important;
+      margin-bottom: 0;
     }
-    
-    .story-excerpt {
-      color: var(--gray-dark);
-      line-height: 1.6;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+
+    /* Google Form Container - Enhanced */
+    .stories-container {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .google-form-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-hover);
       overflow: hidden;
+      border: 2px solid var(--maroon-light);
     }
-    
-    .story-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 20px;
-      border-top: 1px solid var(--gray-light);
-    }
-    
-    .story-date {
-      color: var(--gray-medium);
-      font-size: 0.9rem;
-      font-weight: 600 !important;
-    }
-    
-    .read-more {
-      color: var(--maroon);
-      text-decoration: none;
-      font-weight: 700 !important;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: var(--transition);
-    }
-    
-    .read-more:hover {
-      color: var(--maroon-dark);
-      gap: 10px;
-    }
-    
-    .empty-state {
+
+    .form-header {
+      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+      padding: 50px 40px;
       text-align: center;
-      padding: 60px 40px;
-      background: var(--gray-light);
-      border-radius: 15px;
-      margin-top: 40px;
-      grid-column: 1 / -1;
+      color: var(--white);
     }
-    
-    .empty-state i {
-      font-size: 4rem;
-      color: var(--maroon);
+
+    .form-header h1 {
+      font-size: 2.8rem;
+      font-weight: 900 !important;
       margin-bottom: 20px;
-      opacity: 0.5;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    
-    .empty-state h3 {
-      color: var(--maroon);
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-    }
-    
-    .empty-state p {
-      color: var(--gray-medium);
-      max-width: 500px;
+
+    .form-header p {
+      font-size: 1.2rem;
+      font-weight: 700 !important;
+      opacity: 0.9;
+      line-height: 1.6;
+      max-width: 700px;
       margin: 0 auto;
     }
-    
-    .success-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
+
+    .form-header strong {
+      color: var(--gold);
+      display: block;
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
+
+    .form-content {
+      padding: 40px;
+    }
+
+    .form-iframe {
       width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
+      height: 1500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .back-button {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-    
-    .success-modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .modal-content {
-      background: var(--white);
-      padding: 50px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.4s ease;
-    }
-    
-    .success-modal.active .modal-content {
-      transform: translateY(0);
-    }
-    
-    .modal-icon {
-      width: 80px;
-      height: 80px;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 15px 30px;
       background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 30px;
       color: var(--white);
-      font-size: 2.5rem;
+      text-decoration: none;
+      font-weight: 800 !important;
+      border-radius: 8px;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(139, 30, 63, 0.2);
     }
-    
-    .modal-content h3 {
+
+    .back-button:hover {
+      background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
+      color: var(--white);
+    }
+
+    /* Call to Action */
+    .stories-cta {
+      background: var(--gold-light);
+      padding: 60px 0;
+      text-align: center;
+      border-top: 5px solid var(--gold);
+      border-bottom: 5px solid var(--gold);
+    }
+
+    .stories-cta h2 {
       color: var(--maroon);
-      font-size: 1.8rem;
+      font-size: 2.5rem;
+      font-weight: 900 !important;
       margin-bottom: 20px;
     }
-    
-    .modal-content p {
-      color: var(--gray-medium);
-      margin-bottom: 30px;
+
+    .stories-cta p {
+      color: var(--gray-dark);
+      font-size: 1.2rem;
+      font-weight: 700 !important;
+      max-width: 600px;
+      margin: 0 auto 40px;
       line-height: 1.6;
     }
-    
-    .close-modal {
-      background: var(--maroon);
-      color: var(--white);
-      border: none;
-      padding: 12px 30px;
-      border-radius: 8px;
-      font-weight: 700 !important;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .close-modal:hover {
-      background: var(--maroon-dark);
-    }
-    
-    @media (max-width: 768px) {
-      .stories-hero {
-        padding: 100px 20px 60px;
-        margin-top: 70px;
+
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+      .stories-hero h1 {
+        font-size: 3rem;
       }
       
-      .stories-hero-content h1 {
-        font-size: 2.5rem;
+      .stories-hero p {
+        font-size: 1.2rem;
       }
       
-      .stories-hero-content p {
-        font-size: 1.1rem;
-      }
-      
-      .story-form-section, .stories-gallery-section {
-        padding: 40px 25px;
-      }
-      
-      .form-title, .gallery-title {
-        font-size: 1.8rem;
+      .form-header h1 {
+        font-size: 2.4rem;
       }
       
       .quote-text {
         font-size: 1.4rem;
       }
-      
-      .stories-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .submit-btn {
-        width: 100%;
-      }
     }
-    
-    @media (max-width: 480px) {
-      .stories-hero-content h1 {
-        font-size: 2rem;
+
+    @media screen and (max-width: 768px) {
+      .stories-hero {
+        margin-top: 70px;
+        padding: 100px 0 60px;
+      }
+      
+      .stories-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .stories-hero p {
+        font-size: 1.1rem;
+        padding: 0 20px;
       }
       
       .inspiration-quote {
+        margin: 40px 20px;
+        padding: 40px 30px;
+      }
+      
+      .quote-text {
+        font-size: 1.3rem;
+      }
+      
+      .stories-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto 40px;
+      }
+      
+      .form-header {
         padding: 40px 25px;
+      }
+      
+      .form-header h1 {
+        font-size: 2rem;
+      }
+      
+      .form-header p {
+        font-size: 1.1rem;
+      }
+      
+      .form-content {
+        padding: 25px;
+      }
+      
+      .form-iframe {
+        height: 1600px;
+      }
+      
+      .stories-cta h2 {
+        font-size: 2rem;
+      }
+      
+      .stories-cta p {
+        font-size: 1.1rem;
+        padding: 0 20px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .stories-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .form-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .form-header p {
+        font-size: 1rem;
       }
       
       .quote-text {
         font-size: 1.2rem;
       }
       
-      .modal-content {
-        padding: 30px 20px;
+      .story-content {
+        padding: 25px 20px;
       }
       
-      .modal-content h3 {
-        font-size: 1.5rem;
+      .story-content h3 {
+        font-size: 1.3rem;
       }
     }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stories-hero,
+    .inspiration-quote,
+    .story-card,
+    .google-form-container,
+    .stories-cta {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .story-card:nth-child(1) { animation-delay: 0.1s; }
+    .story-card:nth-child(2) { animation-delay: 0.2s; }
+    .story-card:nth-child(3) { animation-delay: 0.3s; }
   </style>
 </head>
 <body>
-
-  <!-- Same Top Bar Navigation from Index -->
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
-      <!-- Left: Morehouse College Logo -->
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
           <div class="logo-container">
@@ -587,7 +460,6 @@
         </a>
       </div>
 
-      <!-- Top Bar Navigation Links -->
       <div class="nav-center">
         <ul class="nav-menu">
           <li class="nav-item">
@@ -605,13 +477,9 @@
           <li class="nav-item">
             <a href="places.html" class="nav-link">Places We've Been</a>
           </li>
-          <li class="nav-item">
-            <a href="admin.html" class="nav-link">Admin</a>
-          </li>
         </ul>
       </div>
 
-      <!-- Mobile Menu Toggle -->
       <button class="mobile-toggle">
         <i class="fas fa-bars"></i>
       </button>
@@ -638,150 +506,159 @@
     </div>
   </section>
 
-  <!-- Share Your Story Form -->
-  <section class="stories-container">
+  <!-- Featured Stories Grid -->
+  <section class="featured-stories">
     <div class="container">
-      <div class="story-form-section">
-        <h2 class="form-title">Share Your Experience</h2>
-        <form id="storyForm" class="story-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" required placeholder="John Smith">
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required placeholder="john.smith@example.com">
-            </div>
+      <h2 class="section-title">Inspiring Stories from Our Community</h2>
+      <div class="stories-grid">
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-graduation-cap story-icon"></i>
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="school">School/Organization *</label>
-              <input type="text" id="school" name="school" required placeholder="Morehouse College">
-            </div>
-            
-            <div class="form-group">
-              <label for="location">Location *</label>
-              <input type="text" id="location" name="location" required placeholder="Atlanta, GA">
+          <div class="story-content">
+            <h3>From Atlanta Streets to Wall Street</h3>
+            <p>Growing up in the West End, I never imagined I'd be where I am today. Morehouse taught me that my background was my strength, not my limitation. The brotherhood I found here gave me the confidence to pursue my dreams in finance.</p>
+            <div class="story-author">
+              <div class="author-avatar">MJ</div>
+              <div class="author-info">
+                <h4>Marcus Johnson</h4>
+                <p>Class of 2015 | Investment Banker</p>
+              </div>
             </div>
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="graduation">Graduation Year/Status</label>
-              <select id="graduation" name="graduation">
-                <option value="">Select Year/Status</option>
-                <option value="current">Current Student</option>
-                <option value="2025">2025</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
-                <option value="alumni">Alumni (Earlier)</option>
-                <option value="faculty">Faculty/Staff</option>
-                <option value="community">Community Member</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="storyType">Story Type *</label>
-              <select id="storyType" name="storyType" required>
-                <option value="">Select Type</option>
-                <option value="leadership">Leadership Journey</option>
-                <option value="academic">Academic Achievement</option>
-                <option value="community">Community Impact</option>
-                <option value="career">Career Success</option>
-                <option value="brotherhood">Brotherhood Experience</option>
-                <option value="travel">Get on the Bus Trip</option>
-                <option value="mentorship">Mentorship Experience</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="title">Story Title *</label>
-            <input type="text" id="title" name="title" required placeholder="How Morehouse Changed My Life">
-          </div>
-          
-          <div class="form-group">
-            <label for="story">Your Story *</label>
-            <textarea id="story" name="story" required placeholder="Share your inspiring journey... What experiences shaped you? How did Morehouse impact your life? What lessons would you share with future students?"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label>Upload Photos/Videos (Optional)</label>
-            <div class="file-upload" id="fileUpload">
-              <i class="fas fa-cloud-upload-alt"></i>
-              <p>Drag & drop files here or click to browse</p>
-              <span>Max file size: 10MB each | Max 5 files</span>
-              <input type="file" id="fileInput" multiple style="display: none;" accept="image/*,video/*,.pdf,.doc,.docx">
-            </div>
-            <div class="file-preview" id="filePreview"></div>
-          </div>
-          
-          <div class="form-group">
-            <label for="consent">
-              <input type="checkbox" id="consent" name="consent" required>
-              I understand that my story will be reviewed before publication and may be edited for clarity and length.
-            </label>
-          </div>
-          
-          <button type="submit" class="submit-btn" id="submitBtn">
-            <span id="btnText">Submit Your Story</span>
-            <i class="fas fa-spinner fa-spin" id="btnSpinner" style="display: none;"></i>
-          </button>
-          
-          <p class="form-note">* All submissions will be reviewed by the Morehouse College team before publication. You will receive an email when your story is approved.</p>
-        </form>
-      </div>
+        </div>
 
-      <!-- Featured Stories Gallery -->
-      <div class="stories-gallery-section">
-        <h2 class="gallery-title">Inspiring Stories from Our Community</h2>
-        
-        <div class="stories-grid" id="storiesGrid">
-          <!-- Stories will be loaded dynamically -->
-          <div class="empty-state">
-            <i class="fas fa-book-open"></i>
-            <h3>Loading Stories...</h3>
-            <p>Please wait while we load inspiring stories from our community.</p>
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-heartbeat story-icon"></i>
+          </div>
+          <div class="story-content">
+            <h3>Healing Communities Through Medicine</h3>
+            <p>As a first-generation college student, Morehouse gave me more than an education—it gave me purpose. The mentorship I received inspired me to become a physician serving underserved communities, just like my professors served me.</p>
+            <div class="story-author">
+              <div class="author-avatar">DR</div>
+              <div class="author-info">
+                <h4>David Robinson</h4>
+                <p>Class of 2012 | Medical Doctor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-image">
+            <i class="fas fa-laptop-code story-icon"></i>
+          </div>
+          <div class="story-content">
+            <h3>Building Tech for Social Change</h3>
+            <p>The computer science program at Morehouse taught me technical skills, but the leadership development taught me how to use those skills for good. Today, my startup creates technology solutions for educational equity across the country.</p>
+            <div class="story-author">
+              <div class="author-avatar">KW</div>
+              <div class="author-info">
+                <h4>Kevin Williams</h4>
+                <p>Class of 2018 | Tech Entrepreneur</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Success Modal -->
-  <div class="success-modal" id="successModal">
-    <div class="modal-content">
-      <div class="modal-icon">
-        <i class="fas fa-check"></i>
+  <!-- Google Form Container -->
+  <section class="stories-container">
+    <div class="container">
+      <div class="google-form-container">
+        <div class="form-header">
+          <h1>Share Your Story</h1>
+          <p>Every Morehouse man has a unique journey. Share your experience, challenges, triumphs, and wisdom with the next generation of leaders. Your story could inspire someone to take their first step toward greatness.</p>
+          <strong>Your submission will be reviewed by the Morehouse College team. You will receive a confirmation email.</strong>
+        </div>
+        
+        <div class="form-content">
+          <!-- PASTE YOUR GOOGLE FORM EMBED CODE HERE -->
+          <iframe class="form-iframe" 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSchFAXRIqsAmlM6KyZHTmlPG1gMg19Ux3feyNDtuLIQF79GYg/viewform?embedded=true">
+            Loading…
+          </iframe>
+          
+          <div style="text-align: center;">
+            <a href="index.html" class="back-button">
+              <i class="fas fa-arrow-left"></i> Back to Homepage
+            </a>
+          </div>
+        </div>
       </div>
-      <h3>Thank You for Sharing!</h3>
-      <p>Your story has been submitted successfully. It will be reviewed by our team and, once approved, will be featured on this page to inspire others.</p>
-      <p><strong>You will receive an email confirmation shortly.</strong></p>
-      <button class="close-modal" id="closeModal">Continue</button>
     </div>
-  </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="stories-cta">
+    <div class="container">
+      <h2>Your Voice Matters</h2>
+      <p>Every story shared strengthens our community and guides the path for future Morehouse men. Whether you're a current student, alumnus, faculty member, or supporter, your perspective is valuable.</p>
+      <a href="#top" class="cta-button">
+        <i class="fas fa-share-alt"></i> Share Your Story Now
+      </a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="main-footer">
     <div class="container">
       <div class="footer-columns">
-        <!-- Footer columns same as index -->
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-logo">
-          <h3>MOREHOUSE COLLEGE</h3>
-          <p>Get on the Bus</p>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">About the Initiative</a></li>
+            <li><a href="Why Morehouse.html">Why Morehouse</a></li>
+            <li><a href="tools.html">Empowerment Tools</a></li>
+            <li><a href="stories.html">Share Your Story</a></li>
+            <li><a href="places.html">Places We've Been</a></li>
+          </ul>
         </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Admissions Information</a></li>
+            <li><a href="#">Financial Aid</a></li>
+            <li><a href="#">Campus Tours</a></li>
+            <li><a href="#">Academic Programs</a></li>
+            <li><a href="#">Student Life</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><a href="#">Contact Admissions</a></li>
+            <li><a href="#">Schedule a Visit</a></li>
+            <li><a href="#">Request Information</a></li>
+            <li><span class="subheading">Follow Morehouse</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="footer-logo-img">
+            <div>
+              <h3>MOREHOUSE COLLEGE</h3>
+              <p>Get on the Bus</p>
+            </div>
+          </div>
+          <div class="footer-info">
+            <p>830 Westview Dr SW, Atlanta, GA 30314</p>
+            <p>(470) 639-0000</p>
+            <p>admissions@morehouse.edu</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
         <div class="footer-info">
-          <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
+          <p>"The Morehouse Mystique: Developing Men with a Sense of Purpose"</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -791,6 +668,7 @@
           </div>
         </div>
       </div>
+      
       <div class="copyright">
         <p>&copy; 2025 Morehouse College. All rights reserved.</p>
       </div>
@@ -798,187 +676,33 @@
   </footer>
 
   <script>
-    // API Base URL
-    const API_BASE_URL = '/api';
-    
-    // File upload functionality
-    const fileInput = document.getElementById('fileInput');
-    const fileUpload = document.getElementById('fileUpload');
-    const filePreview = document.getElementById('filePreview');
-    const maxFiles = 5;
-    const maxFileSize = 10 * 1024 * 1024;
-    let uploadedFiles = [];
+    // Mobile menu toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navCenter = document.querySelector('.nav-center');
 
-    fileUpload.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change', handleFileSelect);
-    
-    function handleFileSelect() {
-      const files = Array.from(fileInput.files);
-      
-      if (uploadedFiles.length + files.length > maxFiles) {
-        alert(`Maximum ${maxFiles} files allowed.`);
-        return;
-      }
-      
-      files.forEach(file => {
-        if (file.size > maxFileSize) {
-          alert(`File "${file.name}" exceeds 10MB limit.`);
-          return;
-        }
-        
-        uploadedFiles.push(file);
-        renderFilePreview(file);
+    mobileToggle.addEventListener('click', () => {
+      navCenter.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navCenter.classList.remove('active');
+        mobileToggle.querySelector('i').classList.remove('fa-times');
+        mobileToggle.querySelector('i').classList.add('fa-bars');
       });
-      
-      fileInput.value = '';
-    }
+    });
 
-    function renderFilePreview(file) {
-      const fileItem = document.createElement('div');
-      fileItem.className = 'file-item';
-      fileItem.dataset.name = file.name;
-      
-      let icon = 'fa-file';
-      if (file.type.startsWith('image/')) icon = 'fa-image';
-      else if (file.type.startsWith('video/')) icon = 'fa-video';
-      else if (file.type === 'application/pdf') icon = 'fa-file-pdf';
-      
-      fileItem.innerHTML = `
-        <i class="fas ${icon}"></i>
-        <span style="flex-grow: 1; font-size: 0.9rem;">${file.name}</span>
-        <button class="remove-file" onclick="removeFile('${file.name}')">
-          <i class="fas fa-times"></i>
-        </button>
-      `;
-      
-      filePreview.appendChild(fileItem);
-    }
-
-    window.removeFile = function(fileName) {
-      uploadedFiles = uploadedFiles.filter(file => file.name !== fileName);
-      const fileItem = filePreview.querySelector(`[data-name="${fileName}"]`);
-      if (fileItem) fileItem.remove();
-    };
-
-    // Form submission
-    const storyForm = document.getElementById('storyForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const btnSpinner = document.getElementById('btnSpinner');
-    const successModal = document.getElementById('successModal');
-
-    storyForm.addEventListener('submit', async (e) => {
+    // Smooth scroll for CTA button
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
       e.preventDefault();
-      
-      submitBtn.disabled = true;
-      btnText.textContent = 'Submitting...';
-      btnSpinner.style.display = 'inline-block';
-      
-      try {
-        const formData = new FormData(storyForm);
-        
-        // Add files to formData
-        uploadedFiles.forEach((file, index) => {
-          formData.append('files', file);
-        });
-        
-        const response = await fetch(`${API_BASE_URL}/stories`, {
-          method: 'POST',
-          body: formData
-        });
-        
-        if (response.ok) {
-          const result = await response.json();
-          successModal.classList.add('active');
-          
-          // Reset form
-          storyForm.reset();
-          uploadedFiles = [];
-          filePreview.innerHTML = '';
-          
-          // Load updated stories
-          loadStories();
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        alert('Error submitting story. Please try again.');
-        console.error('Submission error:', error);
-      } finally {
-        submitBtn.disabled = false;
-        btnText.textContent = 'Submit Your Story';
-        btnSpinner.style.display = 'none';
-      }
+      document.querySelector('.google-form-container').scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-
-    // Close modal
-    document.getElementById('closeModal').addEventListener('click', () => {
-      successModal.classList.remove('active');
-    });
-
-    // Load stories on page load
-    async function loadStories() {
-      try {
-        const response = await fetch(`${API_BASE_URL}/stories/approved`);
-        const stories = await response.json();
-        
-        const storiesGrid = document.getElementById('storiesGrid');
-        storiesGrid.innerHTML = '';
-        
-        if (stories.length === 0) {
-          storiesGrid.innerHTML = `
-            <div class="empty-state">
-              <i class="fas fa-book-open"></i>
-              <h3>Be the First to Share</h3>
-              <p>Your story could inspire the next generation of Morehouse Men. Submit your experience above!</p>
-            </div>
-          `;
-          return;
-        }
-        
-        stories.forEach(story => {
-          const initials = story.name.split(' ').map(n => n[0]).join('').toUpperCase();
-          const colors = ['#8B1E3F', '#6a152f', '#D4AF37', '#880808'];
-          const color = colors[Math.floor(Math.random() * colors.length)];
-          
-          const storyCard = document.createElement('div');
-          storyCard.className = 'story-card';
-          storyCard.innerHTML = `
-            <div class="story-media">
-              <img src="${story.imageUrl || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'}" alt="${story.title}">
-              <span class="story-type">${story.type}</span>
-            </div>
-            <div class="story-content">
-              <div class="story-author">
-                <div class="author-avatar" style="background: ${color}">${initials}</div>
-                <div class="author-info">
-                  <h4>${story.name}</h4>
-                  <p>${story.school} • ${story.location}</p>
-                </div>
-              </div>
-              <h3 style="color: var(--maroon); margin-bottom: 10px; font-weight: 700;">${story.title}</h3>
-              <p class="story-excerpt">${story.story.substring(0, 150)}...</p>
-              <div class="story-meta">
-                <span class="story-date">${new Date(story.createdAt).toLocaleDateString()}</span>
-                <a href="#" class="read-more" onclick="viewFullStory('${story._id}')">Read Full Story <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </div>
-          `;
-          
-          storiesGrid.appendChild(storyCard);
-        });
-      } catch (error) {
-        console.error('Error loading stories:', error);
-      }
-    }
-
-    window.viewFullStory = function(storyId) {
-      // Implement full story view modal
-      alert('Full story view coming soon!');
-    };
-
-    // Load stories on page load
-    document.addEventListener('DOMContentLoaded', loadStories);
   </script>
 </body>
 </html>
