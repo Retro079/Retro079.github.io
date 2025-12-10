@@ -375,456 +375,26 @@
     .story-card:nth-child(2) { animation-delay: 0.2s; }
     .story-card:nth-child(3) { animation-delay: 0.3s; }
   </style>
-  <style>
-    /* Additional styles specific to stories page */
-    
-    /* Stories Hero Section */
-    .stories-hero {
-      background: linear-gradient(rgba(139, 30, 63, 0.85), rgba(0, 0, 0, 0.9)),
-                  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      padding: 150px 0 80px;
-      text-align: center;
-      color: var(--white);
-      margin-top: 85px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stories-hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .stories-hero h1 {
-      font-size: 3.5rem;
-      font-weight: 900 !important;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-      letter-spacing: 2px;
-      line-height: 1.1;
-    }
-
-    .stories-hero p {
-      font-size: 1.3rem;
-      font-weight: 700 !important;
-      margin-bottom: 0;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    /* Index.html specific navbar styles */
-    .college-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .logo-main {
-      color: var(--maroon);
-      font-size: 1.6rem;
-      font-weight: 900 !important;
-      letter-spacing: 1.2px;
-      line-height: 1.1;
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-    }
-
-    .logo-sub {
-      color: var(--maroon);
-      font-size: 1rem;
-      font-weight: 800 !important;
-      margin-top: 3px;
-      letter-spacing: 0.8px;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* GIVE button styling */
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .nav-action-btn {
-      padding: 12px 30px;
-      text-decoration: none;
-      font-weight: 800 !important;
-      border-radius: 8px;
-      transition: var(--transition);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.95rem;
-      border: 2px solid transparent;
-    }
-
-    .give-btn {
-      background: var(--maroon);
-      color: var(--white);
-      border: 2px solid var(--maroon);
-    }
-
-    .give-btn:hover {
-      background: var(--maroon-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
-    }
-
-    /* Featured Stories Grid */
-    .featured-stories {
-      padding: 80px 0;
-      background: var(--gray-light);
-    }
-
-    .stories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .story-card {
-      background: var(--white);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      border: 1px solid var(--gray-light);
-    }
-
-    .story-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--maroon-light);
-    }
-
-    .story-image {
-      height: 250px;
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .story-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .story-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      opacity: 0.8;
-    }
-
-    .story-content {
-      padding: 30px;
-    }
-
-    .story-content h3 {
-      color: var(--maroon);
-      font-size: 1.5rem;
-      font-weight: 800 !important;
-      margin-bottom: 15px;
-      line-height: 1.3;
-    }
-
-    .story-content p {
-      color: var(--gray-medium);
-      line-height: 1.6;
-      font-weight: 600 !important;
-      margin-bottom: 20px;
-    }
-
-    .story-author {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding-top: 20px;
-      border-top: 1px solid var(--gray-light);
-    }
-
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--maroon-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--maroon);
-      font-weight: 800 !important;
-      font-size: 1.2rem;
-    }
-
-    .author-info h4 {
-      color: var(--maroon);
-      font-size: 1.1rem;
-      font-weight: 800 !important;
-      margin-bottom: 5px;
-    }
-
-    .author-info p {
-      color: var(--gray-medium);
-      font-size: 0.9rem;
-      font-weight: 600 !important;
-      margin-bottom: 0;
-    }
-
-    /* Google Form Container - Enhanced */
-    .stories-container {
-      padding: 80px 0;
-      background: var(--white);
-    }
-
-    .google-form-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 20px;
-      box-shadow: var(--shadow-hover);
-      overflow: hidden;
-      border: 2px solid var(--maroon-light);
-    }
-
-    .form-header {
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      padding: 50px 40px;
-      text-align: center;
-      color: var(--white);
-    }
-
-    .form-header h1 {
-      font-size: 2.8rem;
-      font-weight: 900 !important;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .form-header p {
-      font-size: 1.2rem;
-      font-weight: 700 !important;
-      opacity: 0.9;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .form-header strong {
-      color: var(--gold);
-      display: block;
-      margin-top: 20px;
-      font-size: 1.3rem;
-    }
-
-    .form-content {
-      padding: 40px;
-    }
-
-    .form-iframe {
-      width: 100%;
-      height: 1357px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 40px;
-      padding: 15px 30px;
-      background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 800 !important;
-      border-radius: 8px;
-      transition: var(--transition);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 1rem;
-      border: 2px solid transparent;
-      box-shadow: 0 4px 15px rgba(139, 30, 63, 0.2);
-    }
-
-    .back-button:hover {
-      background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(139, 30, 63, 0.3);
-      color: var(--white);
-    }
-
-    /* Call to Action */
-    .stories-cta {
-      background: var(--gold-light);
-      padding: 60px 0;
-      text-align: center;
-      border-top: 5px solid var(--gold);
-      border-bottom: 5px solid var(--gold);
-    }
-
-    .stories-cta h2 {
-      color: var(--maroon);
-      font-size: 2.5rem;
-      font-weight: 900 !important;
-      margin-bottom: 20px;
-    }
-
-    .stories-cta p {
-      color: var(--gray-dark);
-      font-size: 1.2rem;
-      font-weight: 700 !important;
-      max-width: 600px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-
-    /* Responsive Design */
-    @media screen and (max-width: 1024px) {
-      .stories-hero h1 {
-        font-size: 3rem;
-      }
-      
-      .stories-hero p {
-        font-size: 1.2rem;
-      }
-      
-      .form-header h1 {
-        font-size: 2.4rem;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .stories-hero {
-        margin-top: 70px;
-        padding: 100px 0 60px;
-      }
-      
-      .stories-hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .stories-hero p {
-        font-size: 1.1rem;
-        padding: 0 20px;
-      }
-      
-      .stories-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto 40px;
-      }
-      
-      .form-header {
-        padding: 40px 25px;
-      }
-      
-      .form-header h1 {
-        font-size: 2rem;
-      }
-      
-      .form-header p {
-        font-size: 1.1rem;
-      }
-      
-      .form-content {
-        padding: 25px;
-      }
-      
-      .stories-cta h2 {
-        font-size: 2rem;
-      }
-      
-      .stories-cta p {
-        font-size: 1.1rem;
-        padding: 0 20px;
-      }
-
-      .nav-actions {
-        display: none; /* Hide GIVE button on mobile */
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .stories-hero h1 {
-        font-size: 2rem;
-      }
-      
-      .form-header h1 {
-        font-size: 1.8rem;
-      }
-      
-      .form-header p {
-        font-size: 1rem;
-      }
-      
-      .story-content {
-        padding: 25px 20px;
-      }
-      
-      .story-content h3 {
-        font-size: 1.3rem;
-      }
-    }
-
-    /* Animation */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .stories-hero,
-    .story-card,
-    .google-form-container,
-    .stories-cta {
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .story-card:nth-child(1) { animation-delay: 0.1s; }
-    .story-card:nth-child(2) { animation-delay: 0.2s; }
-    .story-card:nth-child(3) { animation-delay: 0.3s; }
-  </style>
 </head>
 <body>
-  <!-- Navigation Bar (Matches index.html) -->
+  <!-- Navigation Bar (Using styles (1).css structure) -->
   <nav class="navbar">
     <div class="nav-container">
-      <!-- Left: Morehouse College Logo with Get on the Bus -->
       <div class="nav-brand">
-        <div class="college-logo">
-          <div class="logo-main">MOREHOUSE COLLEGE</div>
-          <div class="logo-sub">Get on the Bus</div>
-        </div>
+        <a href="index.html" class="logo-link">
+          <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="main-logo">
+            <div class="logo-text">
+              <div class="logo-main">MOREHOUSE COLLEGE</div>
+              <div class="logo-sub">Get on the Bus</div>
+            </div>
+          </div>
+        </a>
       </div>
 
-      <!-- Top Bar Navigation Links -->
       <div class="nav-center">
         <ul class="nav-menu">
-          <!-- Top Bar Links -->
           <li class="nav-item">
             <a href="index.html" class="nav-link">About</a>
           </li>
@@ -843,12 +413,6 @@
         </ul>
       </div>
 
-      <!-- Right: Action Buttons -->
-      <div class="nav-actions">
-        <a href="#" class="nav-action-btn give-btn">GIVE</a>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
       <button class="mobile-toggle">
         <i class="fas fa-bars"></i>
       </button>
@@ -965,16 +529,62 @@
     </div>
   </section>
 
-  <!-- Footer (Matches index.html) -->
+  <!-- Footer (Using styles (1).css structure) -->
   <footer class="main-footer">
     <div class="container">
-      <div class="footer-bottom">
-        <div class="footer-logo">
-          <h3>MOREHOUSE COLLEGE</h3>
-          <p>Get on the Bus</p>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">About the Initiative</a></li>
+            <li><a href="Why Morehouse.html">Why Morehouse</a></li>
+            <li><a href="tools.html">Empowerment Tools</a></li>
+            <li><a href="stories.html">Share Your Story</a></li>
+            <li><a href="places.html">Places We've Been</a></li>
+          </ul>
         </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Admissions Information</a></li>
+            <li><a href="#">Financial Aid</a></li>
+            <li><a href="#">Campus Tours</a></li>
+            <li><a href="#">Academic Programs</a></li>
+            <li><a href="#">Student Life</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><a href="#">Contact Admissions</a></li>
+            <li><a href="#">Schedule a Visit</a></li>
+            <li><a href="#">Request Information</a></li>
+            <li><span class="subheading">Follow Morehouse</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="footer-logo-img">
+            <div>
+              <h3>MOREHOUSE COLLEGE</h3>
+              <p>Get on the Bus</p>
+            </div>
+          </div>
+          <div class="footer-info">
+            <p>830 Westview Dr SW, Atlanta, GA 30314</p>
+            <p>(470) 639-0000</p>
+            <p>admissions@morehouse.edu</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
         <div class="footer-info">
-          <p>830 Westview Dr SW, Atlanta, GA 30314 | (470) 639-0000</p>
+          <p>"The Morehouse Mystique: Developing Men with a Sense of Purpose"</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -984,7 +594,7 @@
           </div>
         </div>
       </div>
-
+      
       <div class="copyright">
         <p>&copy; 2025 Morehouse College. All rights reserved.</p>
       </div>
@@ -994,18 +604,19 @@
   <script>
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const navCenter = document.querySelector('.nav-center');
 
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileToggle.querySelector('i').classList.toggle('fa-bars');
-      mobileToggle.querySelector('i').classList.toggle('fa-times');
+      navCenter.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
     });
 
     // Close menu when clicking outside on mobile
     document.addEventListener('click', (e) => {
       if (window.innerWidth <= 768 && !e.target.closest('.navbar')) {
-        navMenu.classList.remove('active');
+        navCenter.classList.remove('active');
         mobileToggle.querySelector('i').classList.remove('fa-times');
         mobileToggle.querySelector('i').classList.add('fa-bars');
       }
@@ -1024,7 +635,7 @@
       // Add click event for mobile to close menu after clicking
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
-          navMenu.classList.remove('active');
+          navCenter.classList.remove('active');
           mobileToggle.querySelector('i').classList.remove('fa-times');
           mobileToggle.querySelector('i').classList.add('fa-bars');
         }
