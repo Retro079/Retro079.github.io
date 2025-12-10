@@ -89,3 +89,774 @@
     }
     
     .stories-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--gray-light);
+      vertical-align: top;
+    }
+    
+    .stories-table tr:hover {
+      background: var(--maroon-light);
+    }
+    
+    .story-preview {
+      max-width: 300px;
+    }
+    
+    .story-preview h4 {
+      color: var(--maroon);
+      margin-bottom: 5px;
+      font-weight: 700 !important;
+    }
+    
+    .story-preview p {
+      color: var(--gray-medium);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+    
+    .story-meta {
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn-approve, .btn-reject, .btn-view {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .btn-approve {
+      background: #28a745;
+      color: white;
+    }
+    
+    .btn-approve:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    
+    .btn-reject {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .btn-reject:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+    }
+    
+    .btn-view {
+      background: var(--maroon);
+      color: white;
+    }
+    
+    .btn-view:hover {
+      background: var(--maroon-dark);
+      transform: translateY(-2px);
+    }
+    
+    .status-badge {
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700 !important;
+      display: inline-block;
+    }
+    
+    .status-pending {
+      background: #ffc107;
+      color: #856404;
+    }
+    
+    .status-approved {
+      background: #28a745;
+      color: white;
+    }
+    
+    .status-rejected {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .file-attachments {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .file-attachment {
+      background: var(--gray-light);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .stats-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .stat-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border-top: 4px solid var(--maroon);
+    }
+    
+    .stat-card h3 {
+      color: var(--maroon);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .stat-card p {
+      color: var(--gray-medium);
+      font-weight: 600 !important;
+    }
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .story-modal {
+      background: var(--white);
+      border-radius: 20px;
+      max-width: 800px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    
+    .modal-header {
+      background: var(--maroon);
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .modal-header h3 {
+      margin: 0;
+      color: white;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .modal-body {
+      padding: 30px;
+    }
+    
+    .modal-body h4 {
+      color: var(--maroon);
+      margin-bottom: 10px;
+    }
+    
+    .modal-body p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .modal-footer {
+      padding: 20px 30px;
+      background: var(--gray-light);
+      border-radius: 0 0 20px 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--gray-medium);
+    }
+    
+    .loading i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--maroon);
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 40px;
+      color: var(--gray-medium);
+    }
+    
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--maroon);
+      opacity: 0.5;
+    }
+    
+    @media (max-width: 768px) {
+      .admin-container {
+        padding: 100px 15px 40px;
+      }
+      
+      .admin-header h1 {
+        font-size: 2rem;
+      }
+      
+      .admin-tab {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .tab-content {
+        padding: 20px;
+      }
+      
+      .stories-table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+      
+      .stats-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .login-form {
+      max-width: 400px;
+      margin: 100px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+    
+    .login-form h2 {
+      color: var(--maroon);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .login-form input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 2px solid var(--gray-light);
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    
+    .login-form button {
+      width: 100%;
+      padding: 15px;
+      background: var(--maroon);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Morehouse_College_seal.svg/1200px-Morehouse_College_seal.svg.png" 
+                 alt="Morehouse College Logo" class="main-logo">
+            <div class="logo-text">
+              <div class="logo-main">MOREHOUSE COLLEGE</div>
+              <div class="logo-sub">Story Admin</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="nav-center">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="stories.html" class="nav-link">View Stories</a>
+          </li>
+          <li class="nav-item">
+            <a href="admin.html" class="nav-link active">Admin Panel</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="adminContent" style="display: none;">
+    <section class="admin-container">
+      <div class="container">
+        <div class="admin-header">
+          <h1>Story Approval Panel</h1>
+          <p>Review, approve, or reject user-submitted stories. All changes are logged and emails are sent automatically.</p>
+        </div>
+
+        <div class="stats-cards">
+          <div class="stat-card">
+            <h3 id="totalStories">0</h3>
+            <p>Total Stories</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="pendingStories">0</h3>
+            <p>Pending Review</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="approvedStories">0</h3>
+            <p>Approved Stories</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="rejectedStories">0</h3>
+            <p>Rejected Stories</p>
+          </div>
+        </div>
+
+        <div class="admin-panel">
+          <div class="admin-tabs">
+            <div class="admin-tab active" data-tab="pending">Pending Review</div>
+            <div class="admin-tab" data-tab="approved">Approved Stories</div>
+            <div class="admin-tab" data-tab="rejected">Rejected Stories</div>
+            <div class="admin-tab" data-tab="all">All Stories</div>
+          </div>
+
+          <div id="pendingContent" class="tab-content active">
+            <div class="loading" id="pendingLoading">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Loading pending stories...</p>
+            </div>
+            <table class="stories-table" id="pendingTable" style="display: none;">
+              <thead>
+                <tr>
+                  <th>Story Details</th>
+                  <th>Author Info</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pendingTableBody"></tbody>
+            </table>
+            <div class="empty-state" id="pendingEmpty" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              <h3>No Pending Stories</h3>
+              <p>All stories have been reviewed. Check back later for new submissions.</p>
+            </div>
+          </div>
+
+          <!-- Other tabs content would be similar -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="loginContent">
+    <div class="container">
+      <div class="login-form">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+          <input type="text" id="adminUsername" placeholder="Username" required>
+          <input type="password" id="adminPassword" placeholder="Password" required>
+          <button type="submit">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 20px; color: var(--gray-medium); font-size: 0.9rem;">
+          Default: admin / password123
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Detail Modal -->
+  <div class="modal-overlay" id="storyModal">
+    <div class="story-modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Story Details</h3>
+        <button class="close-modal" id="closeStoryModal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content will be loaded here -->
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <!-- Buttons will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE_URL = 'http://localhost:3000/api';
+    const ADMIN_TOKEN_KEY = 'admin_token';
+    
+    // Check if already logged in
+    const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+    if (token) {
+      document.getElementById('adminContent').style.display = 'block';
+      document.getElementById('loginContent').style.display = 'none';
+      loadAdminData();
+    }
+    
+    // Login form
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('adminUsername').value;
+      const password = document.getElementById('adminPassword').value;
+      
+      try {
+        const response = await fetch(`${API_BASE_URL}/admin/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, password })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          localStorage.setItem(ADMIN_TOKEN_KEY, data.token);
+          document.getElementById('adminContent').style.display = 'block';
+          document.getElementById('loginContent').style.display = 'none';
+          loadAdminData();
+        } else {
+          alert('Invalid credentials');
+        }
+      } catch (error) {
+        alert('Login failed');
+      }
+    });
+    
+    // Tab switching
+    document.querySelectorAll('.admin-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab + 'Content').classList.add('active');
+        loadTabData(tab.dataset.tab);
+      });
+    });
+    
+    // Load admin data
+    async function loadAdminData() {
+      try {
+        const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+        const response = await fetch(`${API_BASE_URL}/admin/stats`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const stats = await response.json();
+          document.getElementById('totalStories').textContent = stats.total;
+          document.getElementById('pendingStories').textContent = stats.pending;
+          document.getElementById('approvedStories').textContent = stats.approved;
+          document.getElementById('rejectedStories').textContent = stats.rejected;
+        }
+        
+        loadTabData('pending');
+      } catch (error) {
+        console.error('Error loading admin data:', error);
+      }
+    }
+    
+    // Load tab data
+    async function loadTabData(status) {
+      try {
+        const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+        const response = await fetch(`${API_BASE_URL}/admin/stories?status=${status}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const stories = await response.json();
+          displayStories(status, stories);
+        }
+      } catch (error) {
+        console.error('Error loading stories:', error);
+      }
+    }
+    
+    // Display stories in table
+    function displayStories(status, stories) {
+      const tableBody = document.getElementById(status + 'TableBody');
+      const loading = document.getElementById(status + 'Loading');
+      const emptyState = document.getElementById(status + 'Empty');
+      const table = document.getElementById(status + 'Table');
+      
+      if (stories.length === 0) {
+        if (loading) loading.style.display = 'none';
+        if (emptyState) emptyState.style.display = 'block';
+        if (table) table.style.display = 'none';
+        return;
+      }
+      
+      if (loading) loading.style.display = 'none';
+      if (emptyState) emptyState.style.display = 'none';
+      if (table) table.style.display = 'table';
+      
+      tableBody.innerHTML = '';
+      
+      stories.forEach(story => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+          <td class="story-preview">
+            <h4>${story.title}</h4>
+            <p>${story.story.substring(0, 100)}...</p>
+            <div class="story-meta">
+              <strong>Type:</strong> ${story.type} | 
+              <strong>School:</strong> ${story.school}
+            </div>
+            ${story.files && story.files.length > 0 ? `
+              <div class="file-attachments">
+                ${story.files.map(file => `
+                  <div class="file-attachment">
+                    <i class="fas ${getFileIcon(file.type)}"></i>
+                    ${file.name}
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </td>
+          <td>
+            <strong>${story.name}</strong><br>
+            ${story.email}<br>
+            ${story.location}
+          </td>
+          <td>
+            ${new Date(story.createdAt).toLocaleDateString()}<br>
+            <span class="status-badge status-${story.status}">${story.status}</span>
+          </td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-view" onclick="viewStory('${story._id}')">
+                <i class="fas fa-eye"></i> View
+              </button>
+              ${status === 'pending' ? `
+                <button class="btn-approve" onclick="approveStory('${story._id}')">
+                  <i class="fas fa-check"></i> Approve
+                </button>
+                <button class="btn-reject" onclick="rejectStory('${story._id}')">
+                  <i class="fas fa-times"></i> Reject
+                </button>
+              ` : ''}
+            </div>
+          </td>
+        `;
+        
+        tableBody.appendChild(row);
+      });
+    }
+    
+    function getFileIcon(fileType) {
+      if (fileType.startsWith('image/')) return 'fa-image';
+      if (fileType.startsWith('video/')) return 'fa-video';
+      if (fileType === 'application/pdf') return 'fa-file-pdf';
+      if (fileType.includes('word')) return 'fa-file-word';
+      return 'fa-file';
+    }
+    
+    // View story details
+    async function viewStory(storyId) {
+      try {
+        const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+        const response = await fetch(`${API_BASE_URL}/admin/stories/${storyId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          const story = await response.json();
+          
+          document.getElementById('modalTitle').textContent = story.title;
+          
+          document.getElementById('modalBody').innerHTML = `
+            <h4>Author Information</h4>
+            <p><strong>Name:</strong> ${story.name}</p>
+            <p><strong>Email:</strong> ${story.email}</p>
+            <p><strong>School:</strong> ${story.school}</p>
+            <p><strong>Location:</strong> ${story.location}</p>
+            <p><strong>Graduation:</strong> ${story.graduation || 'Not specified'}</p>
+            
+            <h4>Story Details</h4>
+            <p><strong>Type:</strong> ${story.type}</p>
+            <p><strong>Status:</strong> <span class="status-badge status-${story.status}">${story.status}</span></p>
+            <p><strong>Submitted:</strong> ${new Date(story.createdAt).toLocaleString()}</p>
+            
+            <h4>Story Content</h4>
+            <p style="white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 8px;">${story.story}</p>
+            
+            ${story.files && story.files.length > 0 ? `
+              <h4>Attachments</h4>
+              <div class="file-attachments">
+                ${story.files.map(file => `
+                  <div class="file-attachment">
+                    <i class="fas ${getFileIcon(file.type)}"></i>
+                    ${file.name} (${Math.round(file.size / 1024)} KB)
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          `;
+          
+          let footerButtons = '';
+          if (story.status === 'pending') {
+            footerButtons = `
+              <button class="btn-approve" onclick="approveStory('${story._id}', true)">
+                <i class="fas fa-check"></i> Approve Story
+              </button>
+              <button class="btn-reject" onclick="rejectStory('${story._id}', true)">
+                <i class="fas fa-times"></i> Reject Story
+              </button>
+            `;
+          }
+          
+          footerButtons += `
+            <button class="btn-view" onclick="closeModal()">
+              Close
+            </button>
+          `;
+          
+          document.getElementById('modalFooter').innerHTML = footerButtons;
+          document.getElementById('storyModal').classList.add('active');
+        }
+      } catch (error) {
+        console.error('Error viewing story:', error);
+      }
+    }
+    
+    // Approve story
+    async function approveStory(storyId, closeAfter = false) {
+      if (!confirm('Approve this story? An email will be sent to the author.')) return;
+      
+      try {
+        const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+        const response = await fetch(`${API_BASE_URL}/admin/stories/${storyId}/approve`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        
+        if (response.ok) {
+          alert('Story approved! Email sent to author.');
+          if (closeAfter) {
+            closeModal();
+          }
+          loadAdminData();
+        }
+      } catch (error) {
+        alert('Error approving story');
+        console.error('Error:', error);
+      }
+    }
+    
+    // Reject story
+    async function rejectStory(storyId, closeAfter = false) {
+      const reason = prompt('Enter rejection reason (optional):');
+      
+      try {
+        const token = localStorage.getItem(ADMIN_TOKEN_KEY);
+        const response = await fetch(`${API_BASE_URL}/admin/stories/${storyId}/reject`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ reason })
+        });
+        
+        if (response.ok) {
+          alert('Story rejected! Email sent to author.');
+          if (closeAfter) {
+            closeModal();
+          }
+          loadAdminData();
+        }
+      } catch (error) {
+        alert('Error rejecting story');
+        console.error('Error:', error);
+      }
+    }
+    
+    // Close modal
+    function closeModal() {
+      document.getElementById('storyModal').classList.remove('active');
+    }
+    
+    document.getElementById('closeStoryModal').addEventListener('click', closeModal);
+    document.getElementById('storyModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('storyModal')) {
+        closeModal();
+      }
+    });
+    
+    // Logout (optional - add logout button to nav if needed)
+    function logout() {
+      localStorage.removeItem(ADMIN_TOKEN_KEY);
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>
